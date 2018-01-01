@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :name, presence: true,
                    length: { minimum: 3, maximum: 50 }
+  validates :phone, length: { is: 10, message: "number should be 10 digits" },
+                    numericality: { only_integer: true }
   validates :password, presence: true,
                        length: { minimum: 8 }
   validates :password_confirmation, presence: true
