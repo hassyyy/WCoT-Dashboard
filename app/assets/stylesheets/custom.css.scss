@@ -177,6 +177,9 @@ input {
   }
 }
 
+.submit {
+  margin-top: 10px;
+}
 .delete-button {
   float:right;
 }
@@ -210,3 +213,5 @@ input {
   @extend .control-group;
   @extend .error;
 }
+
+div.hidden { display: none; }
