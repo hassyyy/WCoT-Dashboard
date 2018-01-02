@@ -26,8 +26,10 @@ class User < ActiveRecord::Base
   validates :phone, length: { is: 10, message: "number should be 10 digits" },
                     numericality: { only_integer: true }
   validates :password, presence: true,
-                       length: { minimum: 8 }
-  validates :password_confirmation, presence: true
+                       length: { minimum: 8 },
+                       on: :create
+  validates :password_confirmation, presence: true,
+                                    on: :create
 
   private
 
