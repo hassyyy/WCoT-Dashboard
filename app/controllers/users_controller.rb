@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
-  before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: :destroy
+  before_filter :requires_login, only: [:index, :edit, :update, :destroy]
+  before_filter :has_access,   only: [:edit, :update]
+  before_filter :should_be_account_admin,     only: :destroy
 
   def new
     @user = User.new
@@ -50,19 +50,19 @@ class UsersController < ApplicationController
 
   private
 
-    def signed_in_user
+    def requires_login
       unless signed_in?
         store_location
         redirect_to signin_url, notice: "Please sign in."
       end
     end
 
-    def correct_user
+    def has_access
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 
-    def admin_user
+    def should_be_account_admin
       redirect_to(root_url) unless current_user.account_admin?
     end
 
