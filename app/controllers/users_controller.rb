@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
     def has_access
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to(root_url) unless current_user?(@user) || current_user.account_admin?
     end
 
     def should_be_account_admin
