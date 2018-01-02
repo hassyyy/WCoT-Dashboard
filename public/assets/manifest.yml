@@ -1,12 +1,14 @@
 ---
+Delete_Icon.png: Delete_Icon-4730b19d6fc7f1ef9afb7b19fd16e1ba.png
+Delete_Icon/index.png: Delete_Icon-4730b19d6fc7f1ef9afb7b19fd16e1ba.png
+Edit_Icon.png: Edit_Icon-58c07988848ac0d151a368b87c2602ce.png
+Edit_Icon/index.png: Edit_Icon-58c07988848ac0d151a368b87c2602ce.png
 WCoT.png: WCoT-19bc6bbf20f350cce4a4be83ea498fa5.png
 WCoT/index.png: WCoT-19bc6bbf20f350cce4a4be83ea498fa5.png
-delete.png: delete-2e519115c330e84b65ac0ebbd3f51658.png
-delete/index.png: delete-2e519115c330e84b65ac0ebbd3f51658.png
 application.js: application-339544be5cfa0b1106e7a47c0b6fdc74.js
 application/index.js: application-339544be5cfa0b1106e7a47c0b6fdc74.js
-application.css: application-e7ac02c18b4760e2952c765e5bd973f1.css
-application/index.css: application-e7ac02c18b4760e2952c765e5bd973f1.css
+application.css: application-58011f1bf951d03d08bedd977c6cd4c0.css
+application/index.css: application-58011f1bf951d03d08bedd977c6cd4c0.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-b552fc2a3b051cebf4567afb55de29b0.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-b552fc2a3b051cebf4567afb55de29b0.png
 glyphicons-halflings.png: glyphicons-halflings-b4c22a0ed1f42188864f0046f0862ecb.png
