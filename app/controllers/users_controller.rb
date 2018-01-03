@@ -24,7 +24,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    store_location(request.referrer) if request.referrer.end_with? users_path
+    unless request.referrer.nil?
+      store_location(request.referrer) if request.referrer.end_with? users_path
+    end
     @user = User.find(params[:id])
   end
 
