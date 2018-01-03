@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_filter :requires_login, only: [:index, :edit, :update, :destroy]
   before_filter :has_access,   only: [:edit, :update]
-  before_filter :should_be_account_admin,     only: :destroy
+  before_filter :should_be_account_admin,     only: [:new, :create, :destroy]
 
   def new
     @user = User.new
@@ -11,8 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to the WCoT Dashboard!"
+      # sign_in @user
+      # flash[:success] = "Welcome to the WCoT Dashboard!"
       redirect_to @user
     else
       render 'new'
