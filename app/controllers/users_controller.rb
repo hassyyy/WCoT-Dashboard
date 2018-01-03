@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    store_location(request.referrer) if request.referrer.end_with? users_path
     @user = User.find(params[:id])
   end
 
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
       sign_in @user if current_user == @user
-      redirect_to @user
+      redirect_back_or @user
     else
       render 'edit'
     end

@@ -31,8 +31,9 @@ module SessionsHelper
     session.delete(:return_to)
   end
 
-  def store_location
-    session[:return_to] = request.url
+  def store_location(location = nil)
+    location ||= request.url
+    session[:return_to] = location
   end
 
 end
