@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :requires_login, only: [:index, :edit, :update, :destroy]
+  before_filter :requires_login
   before_filter :has_access,   only: [:edit, :update]
   before_filter :should_be_account_admin,     only: [:new, :create, :destroy]
 
