@@ -192,6 +192,9 @@ input {
   display: inline-block;
   align-items: center;
 }
+.contribution-new{
+  float: right;
+}
 .delete-button {
   float:right;
 }
@@ -207,6 +210,46 @@ input {
 .account-admin{
   color: #FF1493;
 }
+
+/* contributions */
+
+.contributions {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.contribution-details{
+  display: inline-block;
+}
+.contribution-actions{
+  display: inline-block;
+  float: right;
+}
+.contributions-value {
+  display: block;
+}
+.contributions-month {
+  color: $grayLight;
+}
+.contributions-year {
+  color: $grayLight;
+}
+.contribution-status-change{
+  
+}
+/* contributions status*/
+[contribution-status='submitted']{
+  color: red;
+}
+[contribution-status='sent']{
+  color: green;
+}
+
+
 /* miscellaneous */
 
 .debug_dump {
