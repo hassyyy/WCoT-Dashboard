@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180101164214) do
+ActiveRecord::Schema.define(:version => 20180105130153) do
+
+  create_table "contributions", :force => true do |t|
+    t.integer  "value"
+    t.string   "month"
+    t.integer  "year"
+    t.string   "status"
+    t.string   "mode"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "contributions", ["user_id", "created_at"], :name => "index_contributions_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"
