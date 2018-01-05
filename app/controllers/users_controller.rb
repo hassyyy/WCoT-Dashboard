@@ -55,13 +55,6 @@ class UsersController < ApplicationController
 
     UNAUTHORIZED_MESSAGE = "You are not authorized to access this page. Kindly contact your account admin."
 
-    def requires_login
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in."
-      end
-    end
-
     def has_access
       @user = User.find(params[:id])
       redirect_to(root_url, notice: UNAUTHORIZED_MESSAGE) unless current_user?(@user) || current_user.account_admin?
