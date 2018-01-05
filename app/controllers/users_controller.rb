@@ -21,6 +21,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @contributions = @user.contributions.paginate(page: params[:page], :per_page => 10)
+    @new_contribution = current_user.contributions.build
   end
 
   def edit

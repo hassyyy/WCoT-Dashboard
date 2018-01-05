@@ -10,4 +10,28 @@
         <%= @user.phone %>
     </section>
   </aside>
+  <div class="contribution-new">
+    <% if current_user?(@user) %>
+      <%= image_tag('Contribute_Money.png', :size => "50x50") %>Submit a contribution
+        <section class="contribution-form">
+          <%= render 'shared/contribution_form' %>
+        </section>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="contributions-list span8">
+    <% if @user.contributions.length > 0 %>
+      <h3>
+        <%= "Your" if current_user?(@user) %>
+        Contributions (<%= @user.contributions.count %>)
+      </h3>
+      <ol class="contributions">
+        <%= render @contributions %>
+      </ol>
+      <%= will_paginate @contributions %>
+    <% else %>
+      <span> This user is yet to contribute anything. </span>
+    <% end %>
+  </div>
 </div>

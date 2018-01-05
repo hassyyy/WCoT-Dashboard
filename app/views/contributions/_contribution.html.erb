@@ -1,0 +1,15 @@
+<li contribution-status="<%= contribution.status %>" class="row">
+  <div class="contribution-details">
+    <span class="contribution-value">Rs. <%= contribution.value %></span> |
+    <span class="contribution-month"><%= contribution.month %></span>
+    <span class="contribution-year"><%= contribution.year %></span>
+    <!-- <span class="contribution-status"><%= contribution.status %></span> -->
+  </div>
+  <div class="contribution-actions">
+    <% if current_user.account_admin? && contribution.status === "submitted" %>
+      <%= form_for(contribution) do |f| %>
+        <%= f.submit "Recieved" , class:"btn btn-success"%>
+      <% end %>
+    <% end %>
+  </div>
+</li>

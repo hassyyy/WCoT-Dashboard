@@ -1,0 +1,15 @@
+<%= form_for(@new_contribution) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+
+    <%= f.label "Rs." %>
+    <%= f.number_field :value, min: 1, placeholder: "Enter a value" %>
+
+    <%= f.label "Month" %>
+    <%= f.select :month, Date::ABBR_MONTHNAMES[8..12], {class: "form-select"} %>
+
+    <%= f.label "Year" %>
+    <%= f.select :year, [2017], {class: "form-select"} %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+<% end %>
