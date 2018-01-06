@@ -10,6 +10,19 @@
         <%= @user.phone %>
     </section>
   </aside>
+  <div>
+    <% user_contribution = @user.contributions.where(:status => "sent" ).sum(:value) %>
+    <% if current_user?(@user) %>
+        You have
+    <% else %>
+         This user has
+    <% end %>
+    <% if user_contribution > 0 %>
+      contributed a total of <span class="badge contribution-total">Rs.<%= user_contribution %></span> so far.
+    <% else %>
+      not contributed anything yet.
+    <% end %>
+  </div>
   <div class="contribution-new">
     <% if current_user?(@user) %>
       <%= image_tag('Contribute_Money.png', :size => "50x50") %>Submit a contribution
@@ -30,8 +43,6 @@
         <%= render @contributions %>
       </ol>
       <%= will_paginate @contributions %>
-    <% else %>
-      <span> This user is yet to contribute anything. </span>
     <% end %>
   </div>
 </div>

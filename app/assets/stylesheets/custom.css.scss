@@ -237,8 +237,8 @@ input {
 .contributions-year {
   color: $grayLight;
 }
-.contribution-status-change{
-  
+.contribution-total{
+  background-color: green;
 }
 /* contributions status*/
 [contribution-status='submitted']{
