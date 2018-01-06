@@ -63,7 +63,6 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $grayLight;
 }
 
 p {
@@ -258,6 +257,19 @@ input {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+.steps {
+  font-size: 18px;
+  list-style: none;
+  margin: 0;
+  border-top: 2px solid black;
+  li {
+    display: block;
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $grayLighter;
+  }
 }
 
 #error_explanation {
