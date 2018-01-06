@@ -6,7 +6,7 @@
   <li>1. Go to your <a href= <%=user_path(current_user)%>>profile</a></li>
   <li>2. Submit your decided contribution for the month</li>
   <li>3. After sending the money, inform the
-    <a href= <%=user_path(User.first)%> class="account-admin">Account Admin</a></li>
+    <a href= <%= user_path(User.find_by_account_admin(true)) %> class="account-admin">Account Admin</a></li>
   <li>4. Track the status of your contribution by the text color:
     <span contribution-status="submitted">Submitted</span> /
     <span contribution-status="sent">Sent</span></li>
