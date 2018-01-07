@@ -10,3 +10,12 @@
   </div>
 
 </div>
+
+<% @current_contributions = Contribution.where(:month => "Dec") %>
+
+<% if @current_contributions.length > 0 %>
+    <h2> Recent contributions in this month </h2>
+<% end %>
+<ol class="current_contributions">
+  <%= render partial: 'shared/current_contribution', collection: @current_contributions %>
+</ol>

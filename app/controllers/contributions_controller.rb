@@ -16,9 +16,10 @@ class ContributionsController < ApplicationController
   end
 
   def update
+    store_location(request.referrer)
     @contribution = Contribution.find(params[:id])
     @contribution.update_attributes(status: "sent")
-    redirect_to @contribution.user
+    redirect_back_or @contribution.user
   end
 
   def destroy
