@@ -59,15 +59,14 @@
 
 <div class="row">
   <div class="contributions-list span8">
-    <% if @user.contributions.length > 0 %>
+    <% if @previous_contributions.length > 0 %>
       <h3>
-        <%= "Your" if current_user?(@user) %>
-        Contributions (<%= @user.contributions.count %>)
+        Previous Contributions (<%= @previous_contributions.count %>)
       </h3>
       <ol class="contributions">
-        <%= render @contributions %>
+        <%= render @previous_contributions %>
       </ol>
-      <%= will_paginate @contributions %>
+      <%= will_paginate @previous_contributions %>
     <% end %>
   </div>
 </div>

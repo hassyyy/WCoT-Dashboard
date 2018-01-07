@@ -11,7 +11,7 @@ class ContributionsController < ApplicationController
       redirect_to current_user #redirect to feed after it's deceloped
     else
       @user = current_user
-      @contributions = @user.contributions.paginate(page: params[:page], :per_page => 10)
+      @previous_contributions = @user.contributions.where("month != ? or year != ?", Date.today.strftime("%b"), Date.today.strftime("%Y")).paginate(page: params[:page], :per_page => 10)
       @new_contribution = @contribution
       render 'users/show'
     end
