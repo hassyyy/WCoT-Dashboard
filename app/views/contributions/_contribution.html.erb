@@ -5,11 +5,4 @@
     <span class="contribution-year"><%= contribution.year %></span>
     <!-- <span class="contribution-status"><%= contribution.status %></span> -->
   </div>
-  <div class="contribution-actions">
-    <% if current_user.account_admin? && contribution.status === "submitted" %>
-      <%= form_for(contribution) do |f| %>
-        <%= f.submit "Recieved" , class:"btn btn-success"%>
-      <% end %>
-    <% end %>
-  </div>
 </li>
