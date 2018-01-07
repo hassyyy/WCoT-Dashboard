@@ -1,5 +1,11 @@
 <% provide(:title, @user.name) %>
+<% if current_user?(@user) %>
+    <% user_pronoun = "You have" %>
+<% else %>
+     <% user_pronoun = "This user has" %>
+<% end %>
 <div class="row">
+
   <aside class="span4">
     <section>
       <h1>
@@ -10,28 +16,47 @@
         <%= @user.phone %>
     </section>
   </aside>
+
   <div>
     <% user_contribution = @user.contributions.where(:status => "sent").sum(:value) %>
-    <% if current_user?(@user) %>
-        You have
-    <% else %>
-         This user has
-    <% end %>
+    <%= user_pronoun %>
     <% if user_contribution > 0 %>
       contributed a total of <span class="badge contribution-total">Rs.<%= user_contribution %></span> so far.
     <% else %>
       not contributed anything yet.
     <% end %>
   </div>
-  <div class="contribution-new">
-    <% if current_user?(@user) %>
-      <%= image_tag('Contribute_Money.png', :size => "50x50") %>Submit a contribution
-        <section class="contribution-form">
-          <%= render 'shared/contribution_form' %>
-        </section>
-    <% end %>
-  </div>
+
+  <section class="contribution-widget well">
+    <% current_month_contribution = @user.contributions.where(:month => Date.today.strftime("%b"), :year => Date.today.strftime("%Y")).first %>
+    <%= image_tag("Calendar_Icon.png", :size => "25x25") %>
+    <span class="label label-info"><%= Date.today.strftime("%b %Y") %></span>
+    <div class="contribution-status">
+      <%= user_pronoun %>
+      <% if current_month_contribution.nil? %>
+          not submitted the contribution for this month yet.
+          <% if current_user?(@user) %>
+            <div class="contribution-new">
+                <%= render 'shared/contribution_form' %>
+            </div>
+          <% end %>
+      <% else %>
+          <%= current_month_contribution.status %> a contribution of
+          <span contribution-status="<%= current_month_contribution.status %>">
+            Rs.<%= current_month_contribution.value %>
+          </span> this month.
+
+          <% if current_user.account_admin? && current_month_contribution.status === "submitted" %>
+            <%= form_for(current_month_contribution) do |f| %>
+              <%= f.submit "Recieved" , class:"btn btn-success contribution-received"%>
+            <% end %>
+          <% end %>
+      <% end %>
+    </div>
+  </section>
+
 </div>
+
 <div class="row">
   <div class="contributions-list span8">
     <% if @user.contributions.length > 0 %>

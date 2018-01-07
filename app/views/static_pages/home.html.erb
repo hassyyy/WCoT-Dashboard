@@ -11,7 +11,7 @@
 
 </div>
 
-<% @current_contributions = Contribution.where(:month => "Dec") %>
+<% @current_contributions = Contribution.where(:month => Date.today.strftime("%b"), :year => Date.today.strftime("%Y")) %>
 
 <% if @current_contributions.length > 0 %>
     <h2> Recent contributions in this month </h2>

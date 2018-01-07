@@ -3,6 +3,8 @@ class ContributionsController < ApplicationController
 
   def create
     @contribution = current_user.contributions.build(params[:contribution])
+    @contribution.month = Date.today.strftime("%b")
+    @contribution.year = Date.today.strftime("%Y")
     @contribution.status = "submitted"
     if @contribution.save
       flash[:success] = "Contribution Submitted!"

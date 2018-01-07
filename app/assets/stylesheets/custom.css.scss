@@ -191,9 +191,6 @@ input {
   display: inline-block;
   align-items: center;
 }
-.contribution-new{
-  float: right;
-}
 .delete-button {
   float:right;
 }
@@ -251,7 +248,36 @@ ol.current_contributions {
 [contribution-status='sent']{
   color: green;
 }
-
+.contribution-new-value{
+  * {
+    display: inline-block;
+  }
+  input.value {
+    width: 75px;
+  }
+}
+.submit-contribution {
+width: 50px !important;
+height: 50px !important;
+padding: 0px !important;
+border: 0px !important;
+margin-top: 20px !important;
+cursor: pointer;
+}
+.submit-contribution:hover{
+  border: 2px solid #ccc !important;
+  border-radius: 5px;
+}
+.current-month {
+  display: inline;
+}
+.contribution-widget {
+  margin-top: 10px;
+  .contribution-status, .contribution-received{
+    display: block;
+    margin-top: 10px;
+  }
+}
 /* miscellaneous */
 .right {
   float: right;
@@ -292,3 +318,7 @@ ol.current_contributions {
 }
 
 div.hidden { display: none; }
+
+.inline * {
+  display: inline-block;
+}
