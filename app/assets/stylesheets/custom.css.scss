@@ -237,7 +237,10 @@ input {
 .contribution-total{
   background-color: green;
 }
-
+#filter-year, #filter-month{
+  display: inline-block;
+  width: auto;
+}
 ol.current_contributions {
   list-style-type: none;
 }

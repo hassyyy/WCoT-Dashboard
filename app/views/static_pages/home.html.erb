@@ -10,8 +10,6 @@
   </div>
 
 </div>
-<%= select_year(Date.today.year, { :start_year => 2017, :end_year => Date.today.year }, { :id => "filter-year" }) %>
-<%= select("contribution", "month", {}, {}, { :id => "filter-month" }) %>
 
 <% @current_contributions = Contribution.where(:month => Date.today.strftime("%b"), :year => Date.today.strftime("%Y")) %>
 
