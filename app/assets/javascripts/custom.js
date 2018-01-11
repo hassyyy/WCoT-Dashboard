@@ -3,7 +3,7 @@ var monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 const CONTRIBUTIONS_FILTER_INPUT = "#contributions-filter-input";
 const CONTRIBUTIONS_FILTER_ICON = "#contributions-filter-icon";
-console.log(today);
+// console.log(today);
 
 // Handle Show/Hide {Alternative: Bootstrap Collapse[https://www.w3schools.com/bootstrap/bootstrap_collapse.asp]}
 $(function() {
@@ -15,6 +15,7 @@ $(function() {
   });
 });
 
+//Datepicker
 $(function() {
   $(CONTRIBUTIONS_FILTER_INPUT).datepicker({
       format: "MM yyyy",
@@ -35,12 +36,14 @@ $(function() {
   });
 });
 
+//Show datepicker on click of icon
 $(function() {
   $(CONTRIBUTIONS_FILTER_ICON).click(function(event){
     event.preventDefault();
     $(CONTRIBUTIONS_FILTER_INPUT).datepicker('show');
   })
 });
+
 //Restore stored values on page load
 $(document).ready(function(){
   if($(CONTRIBUTIONS_FILTER_INPUT).is(':visible')) {
@@ -48,6 +51,7 @@ $(document).ready(function(){
   }
 });
 
+//AJAX call to fetch index
 function update_contributions_index(month, year) {
   $.ajax({
     url: "contributions",
