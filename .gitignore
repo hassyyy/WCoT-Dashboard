@@ -16,3 +16,4 @@
 
 # Ignore database configurations
 /config/database.yml
+/Sample Data
