@@ -1,9 +1,16 @@
 <div id="monthly_contributions">
-  <div class="right">
-    Total Contributions =  <span class="badge contribution-total">Rs.<%= @total_contributions_of_month %></span>
+  <% if @total_contributions_of_month == 0 %>
+  <div class="alert alert-danger">
+    No contributions found in the selected month!
   </div>
+  <% else %>
+    <div class="right">
+      Total Contributions =  <span class="badge contribution-total">Rs.<%= @total_contributions_of_month %></span>
+    </div>
 
-  <ol class="monthly_contributions">
-    <%= render partial: 'shared/contribution_in_a_month', collection: @contributions_of_month %>
-  </ol>
+    <ol class="monthly_contributions">
+      <%= render partial: 'shared/contribution_in_a_month', collection: @contributions_of_month %>
+    </ol>
+  <% end %>
+
 </div>
