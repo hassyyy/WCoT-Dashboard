@@ -237,11 +237,30 @@ input {
 .contribution-total{
   background-color: green;
 }
-#filter-year, #filter-month{
+.contributions-index-head * {
+  text-align: center;
+  vertical-align: middle;
   display: inline-block;
-  width: auto;
 }
-ol.current_contributions {
+.contributions-index-head img{
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
+#contributions-filter-input {
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  margin-left: 10px;
+  margin-bottom: 18px;
+  background-color: #33BDA6;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+}
+#contributions-filter-icon {
+  cursor: pointer;
+}
+ol.monthly_contributions {
   list-style-type: none;
 }
 /* contributions status*/

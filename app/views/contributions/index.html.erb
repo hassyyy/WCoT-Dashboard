@@ -1,0 +1,12 @@
+<% provide(:desc, 'Home Page') %>
+<div class="center hero-unit">
+  Overall Contributions =  <span class="badge contribution-total">Rs.<%= Contribution.where(:status => "sent").sum(:value) %></span>
+</div>
+
+<div class="contributions-index-head center">
+  <h2> Contributions of</h2>
+  <%= image_tag("Calendar_Icon.png", :size => "35x35", id:"contributions-filter-icon") %>
+  <input type="text" id="contributions-filter-input" readonly='true' class="form-control" />
+</div>
+
+<%= render partial: 'contributions_of_month' %>

@@ -1,0 +1,9 @@
+<div id="monthly_contributions">
+  <div class="right">
+    Total Contributions =  <span class="badge contribution-total">Rs.<%= @total_contributions_of_month %></span>
+  </div>
+
+  <ol class="monthly_contributions">
+    <%= render partial: 'shared/contribution_in_a_month', collection: @contributions_of_month %>
+  </ol>
+</div>
