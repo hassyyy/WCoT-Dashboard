@@ -23,3 +23,4 @@ end
 
 gem 'jquery-rails', '2.0.2'
 gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-wysihtml5-rails'

@@ -1,0 +1,23 @@
+<% provide(:title, 'New Resource') %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@resource) do |f| %>
+
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :address %>
+      <%= f.text_area :address %>
+
+      <%= f.label :contact_details %>
+      <%= f.text_field :contact_details %>
+
+      <%= f.label :other_details %>
+      <%= f.text_area :other_details %>
+
+      <%= f.submit "Create Resource", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

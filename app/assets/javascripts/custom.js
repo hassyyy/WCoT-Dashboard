@@ -51,6 +51,13 @@ $(document).ready(function(){
   }
 });
 
+//Rich Text Editor
+$(document).ready(function(){
+  $('textarea').each(function(i, element) {
+    $(element).wysihtml5();
+  });
+});
+
 //AJAX call to fetch index
 function update_contributions_index(month, year) {
   $.ajax({

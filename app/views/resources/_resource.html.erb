@@ -1,0 +1,9 @@
+<li>
+  <%= link_to resource.name, resource %><br>
+  <%= resource.contact_details %>
+  <%= link_to image_tag("Delete_Icon.png", :size => "25x25", alt: "Delete"), resource, method: :delete,
+                                          class: "delete-button",
+                                          data: { confirm: "You sure?" } %>
+  <%= link_to image_tag("Edit_Icon.png", :size => "25x25", alt: "Edit"), edit_resource_path(resource),
+                                          class: "edit-button" %>
+</li>

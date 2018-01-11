@@ -1,0 +1,16 @@
+<% provide(:title, 'All Resources') %>
+
+<div id="index-head">
+  <h1 class="resources-list">All Resources</h1>
+    <%= link_to new_resource_path, :class =>'create-resource' do %>
+      <%= image_tag('Charity.png', :size => "30x30") %> Create a new resource
+    <% end %>
+</div>
+
+<%= will_paginate %>
+
+<ul class="resources">
+    <%= render @resources %>
+</ul>
+
+<%= will_paginate %>
