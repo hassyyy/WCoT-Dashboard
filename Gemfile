@@ -7,6 +7,7 @@ gem 'test-unit'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
+gem 'momentjs-rails'
 
 group :development do
   gem 'annotate', '2.5.0'
@@ -21,3 +22,4 @@ group :assets do
 end
 
 gem 'jquery-rails', '2.0.2'
+gem 'bootstrap-datepicker-rails'
