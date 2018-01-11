@@ -1,8 +1,9 @@
 WcotDashboard::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :contributions, only: [:create, :destroy, :update]
+  resources :contributions, only: [:create, :destroy, :update, :index]
 
+  root to: 'contributions#index'
 
   match '/signup',  to: 'users#new'
 

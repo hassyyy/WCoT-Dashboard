@@ -26,4 +26,17 @@ class ContributionsController < ApplicationController
 
   def destroy
   end
+
+  def index
+    if request.xhr?
+      @contributions_of_month = Contribution.where(:month => params[:month], :year => params[:year])
+      @total_contributions_of_month = Contribution.where(:month => params[:month], :year => params[:year], :status => "sent").sum(:value)
+      render partial: 'contributions_of_month'
+    else
+      @contributions_of_month = Contribution.where(:month => Time.now.strftime("%b"), :year => Time.now.strftime("%Y"))
+      @total_contributions_of_month = Contribution.where(:month => Time.now.strftime("%b"), :year => Time.now.strftime("%Y"), :status => "sent").sum(:value)
+      render 'index'
+    end
+  end
+
 end
