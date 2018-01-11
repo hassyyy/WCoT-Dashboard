@@ -1,8 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_filter :requires_login,     only: [:home, :help]
-
-  def home
-  end
+  before_filter :requires_login,     only: [:help]
 
   def help
   end
