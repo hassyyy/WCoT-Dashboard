@@ -358,3 +358,20 @@ div.hidden { display: none; }
 .inline * {
   display: inline-block;
 }
+
+[show-hide-trigger] {
+  cursor: pointer;
+}
+
+.upi {
+  border-right: 1px solid #ccc;
+}
+
+#upi-qr {
+  margin: 10px 10px 10px 0px;
+}
+
+.bank-account{
+  margin-top: 20px;
+  outline: 4px solid black;
+}
