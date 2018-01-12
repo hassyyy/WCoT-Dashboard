@@ -8,7 +8,7 @@ class ContributionsController < ApplicationController
     @contribution.status = "submitted"
     if @contribution.save
       flash[:success] = "Contribution Submitted!"
-      redirect_to current_user #redirect to feed after it's deceloped
+      redirect_to current_user
     else
       @user = current_user
       @previous_contributions = @user.contributions.where("month != ? or year != ?", Date.today.strftime("%b"), Date.today.strftime("%Y")).paginate(page: params[:page], :per_page => 10)

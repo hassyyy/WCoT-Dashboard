@@ -4,9 +4,9 @@
     No contributions found in the selected month!
   </div>
   <% else %>
-    <div class="right">
+    <h4 class="center" id="contributions-month-total">
       Total Contributions =  <span class="badge contribution-total">Rs.<%= @total_contributions_of_month %></span>
-    </div>
+    </h4>
 
     <ol class="monthly_contributions">
       <%= render partial: 'shared/contribution_in_a_month', collection: @contributions_of_month %>
