@@ -35,6 +35,7 @@ class ContributionsController < ApplicationController
     else
       @contributions_of_month = Contribution.where(:month => Time.now.strftime("%b"), :year => Time.now.strftime("%Y"))
       @total_contributions_of_month = Contribution.where(:month => Time.now.strftime("%b"), :year => Time.now.strftime("%Y"), :status => "sent").sum(:value)
+      @donations = Donation.all
       render 'index'
     end
   end
