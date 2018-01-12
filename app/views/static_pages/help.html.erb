@@ -2,16 +2,21 @@
 <% provide(:desc, 'You can find about the process followed by WCoT here') %>
 
 <div class="steps">
-  <h2>How to contribute?</h2>
-  <li>1. Go to your <a href= <%=user_path(current_user)%>>profile</a></li>
-  <li>2. Submit your decided contribution for the month</li>
-  <li>3. After sending the money, inform the
-    <a href= <%= user_path(User.find_by_account_admin(true)) %> class="account-admin">Account Admin</a></li>
-  <li>4. Track the status of your contribution by the text color:
-    <span contribution-status="submitted">Submitted</span> /
-    <span contribution-status="sent">Sent</span></li>
-  <li class="alert alert-warning">You cannot edit/delete a contribution. Kindly be cautious!</li>
-  <li class="alert alert-info">You can only submit a contribution for the current month</li>
+  <div show-hide-trigger="how-to-contribute">
+    <h2>How to contribute?</h2>
+  </div>
+  <div class="hidden" show-hide-elements="how-to-contribute">
+    <li>1. Go to your <a href= <%=user_path(current_user)%>>profile</a></li>
+    <li>2. Submit your decided contribution for the month</li>
+    <li>3. After sending the money, inform the
+      <a href= <%= user_path(User.find_by_account_admin(true)) %> class="account-admin">Account Admin</a></li>
+    <li>4. Track the status of your contribution by the text color:
+      <span contribution-status="submitted">Submitted</span> /
+      <span contribution-status="sent">Sent</span></li>
+    <li class="alert alert-warning">You cannot edit/delete a contribution. Kindly be cautious!</li>
+    <li class="alert alert-info">You can only submit a contribution for the current month</li>
+  </div>
+</div>
 </div>
 
 <div class="steps">

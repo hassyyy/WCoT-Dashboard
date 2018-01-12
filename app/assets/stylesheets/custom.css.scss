@@ -358,3 +358,7 @@ div.hidden { display: none; }
 .inline * {
   display: inline-block;
 }
+
+[show-hide-trigger] {
+  cursor: pointer;
+}
