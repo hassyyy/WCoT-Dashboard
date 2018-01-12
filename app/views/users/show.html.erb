@@ -29,7 +29,7 @@
 
   <section class="contribution-widget well">
     <% current_month_contribution = @user.contributions.where(:month => Date.today.strftime("%b"), :year => Date.today.strftime("%Y")).first %>
-    <%= image_tag("Calendar_Icon.png", :size => "25x25") %>
+    <%= image_tag("Calendar.png", :size => "25x25") %>
     <span class="label label-info"><%= Date.today.strftime("%b %Y") %></span>
     <div class="contribution-status">
       <%= user_pronoun %>

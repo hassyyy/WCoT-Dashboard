@@ -2,7 +2,7 @@
   <div class = "contribution-new-value ">
     <%= f.label :value, "Rs." %>
     <%= f.number_field :value, min: 1, placeholder: "Value", class: "value" %>
-    <%= image_submit_tag("Contribute_Money.png", class: "submit-contribution", alt: "Contribute") %>
+    <%= image_submit_tag("Contribute.png", class: "submit-contribution", alt: "Contribute") %>
   </div>
   <% if f.object.errors.any? %>
     <div id="error_explanation">
