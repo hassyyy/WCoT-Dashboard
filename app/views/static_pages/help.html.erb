@@ -17,6 +17,29 @@
     <li class="alert alert-info">You can only submit a contribution for the current month</li>
   </div>
 </div>
+
+<div class="steps">
+  <div show-hide-trigger="account-details">
+    <h2>Account Details</h2>
+  </div>
+  <div class="hidden" show-hide-elements="account-details">
+    <div class="row">
+      <div class="span4 upi">
+        UPI: <strong>hassyyy@upi</strong><br>
+        <%= image_tag('UPI.jpeg', :size => "200x200", :id => "upi-qr") %><br>
+      </div>
+      <div class="span6">
+          Bank Account:
+          <div class="well bank-account">
+            <strong>Account Number:</strong> 500101010445281<br>
+            <strong>Bank Name:</strong> City Union Bank<br>
+            <strong>Branch Name:</strong> Kattupakkam<br>
+            <strong>IFSC Code:</strong> CIUB0000433<br>
+            <strong>MICR Code:</strong> 600054084<br>
+          </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="steps">
