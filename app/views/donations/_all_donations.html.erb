@@ -1,0 +1,12 @@
+<div id="all-donations">
+  <% if Donation.sum(:value) == 0 %>
+  <div class="alert alert-danger">
+    No donations found!
+  </div>
+  <% else %>
+    <ol class="donations-list">
+      <%= render partial: 'shared/donation', collection: @donations %>
+    </ol>
+  <% end %>
+
+</div>

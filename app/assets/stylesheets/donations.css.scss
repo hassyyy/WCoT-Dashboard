@@ -1,0 +1,51 @@
+
+$grayLighter: #eee;
+
+.create-donation{
+  display: inline-block;
+  float: right;
+}
+
+.donations-title{
+  display: inline-block;
+  text-align: center;
+}
+
+ol.donations{
+  list-style: none;
+  h5 {
+    color: #08c;
+  }
+}
+
+#donation_description + input + iframe.wysihtml5-sandbox {
+  height: 150px !important;
+}
+
+#donation_date {
+  cursor: pointer;
+}
+.donations {
+  list-style: none;
+  margin: 0;
+  li {
+    display: block;
+    overflow: auto;
+    padding: 10px 0px 10px 10px;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
+
+.donation-details{
+  cursor: pointer;
+}
+.donations-total{
+  background-color: #3a87ad;
+}
+
+ol.donations-list{
+  list-style: none;
+}
