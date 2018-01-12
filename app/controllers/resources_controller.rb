@@ -20,6 +20,7 @@ class ResourcesController < ApplicationController
 
   def show
     @resource = Resource.find(params[:id])
+    @donations = @resource.donations.paginate(page: params[:page], :per_page => 10)
   end
 
   def edit
