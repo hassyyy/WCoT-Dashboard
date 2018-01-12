@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180111140700) do
+ActiveRecord::Schema.define(:version => 20180112093553) do
 
   create_table "contributions", :force => true do |t|
     t.integer  "value"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(:version => 20180111140700) do
   end
 
   add_index "contributions", ["user_id", "created_at"], :name => "index_contributions_on_user_id_and_created_at"
+
+  create_table "donations", :force => true do |t|
+    t.integer  "value"
+    t.integer  "resource_id"
+    t.string   "bills"
+    t.string   "description"
+    t.date     "date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "donations", ["resource_id"], :name => "index_donations_on_resource_id"
 
   create_table "resources", :force => true do |t|
     t.string   "name"

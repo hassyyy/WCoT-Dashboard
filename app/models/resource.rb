@@ -1,5 +1,6 @@
 class Resource < ActiveRecord::Base
   attr_accessible :name, :address, :contact_details, :other_details
+  has_many :donations, dependent: :destroy
 
   validates :name, presence: true
   validate :presence_of_address_or_contact
