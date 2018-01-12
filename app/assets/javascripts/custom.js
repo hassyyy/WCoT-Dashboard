@@ -36,6 +36,19 @@ $(function() {
   });
 });
 
+$(function() {
+  $('#donation_date').datepicker({
+    format: "MM dd, yyyy",
+    autoclose: true,
+    disableEntry: true,
+    forceParse: false,
+    orientation: "bottom right",
+    defaultDate: today,
+    startDate: new Date('2017', '07', '01'),
+    endDate: new Date(today.getFullYear(), today.getMonth())
+  });
+});
+
 //Show datepicker on click of icon
 $(function() {
   $(CONTRIBUTIONS_FILTER_ICON).click(function(event){

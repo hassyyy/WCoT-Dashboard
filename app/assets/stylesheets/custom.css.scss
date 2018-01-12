@@ -237,6 +237,13 @@ input {
 .contribution-total{
   background-color: green;
 }
+.current-balance{
+  font-size: 20px;
+  background-color: green;
+}
+#contributions-index{
+  border-right: 1px solid #ccc;
+}
 .contributions-index-head * {
   text-align: center;
   vertical-align: middle;
@@ -246,6 +253,9 @@ input {
     margin-bottom: 20px;
     margin-left: 10px;
   }
+#contributions-month-total{
+  margin-bottom: 20px;
+}
 #contributions-filter-input {
   cursor: pointer;
   width: auto;
@@ -301,6 +311,10 @@ cursor: pointer;
   }
 }
 /* miscellaneous */
+.left {
+  float: left;
+}
+
 .right {
   float: right;
 }

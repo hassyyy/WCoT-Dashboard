@@ -1,0 +1,14 @@
+<% resource = Resource.find(donation.resource_id) %>
+<li class="alert alert-info">
+  <div class="donation-details-list">
+    <%= link_to resource_path(resource) do %>
+      <h4>
+        <span class="resource"><%= resource.name %></span>
+      </h4>
+    <% end %>
+    <h6>
+      <span class="donation-value">Rs. <%= donation.value %></span> |
+      <span class="donation-date"><%= Date.parse(donation.date.to_s).strftime("%B %d, %Y") %></span>
+    </h6>
+  </div>
+</li>

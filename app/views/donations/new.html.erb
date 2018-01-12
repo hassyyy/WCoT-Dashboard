@@ -1,0 +1,27 @@
+<% provide(:title, 'New Donation') %>
+
+<h3 class="center">Donation for <%= Resource.find(@new_donation.resource_id).name %> </h3>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@new_donation) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.hidden_field :resource_id %>
+
+      <%= f.label :value, "Total Amount (Rs.)" %>
+      <%= f.number_field :value %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+
+      <%= f.label :bills, "Bills Link" %>
+      <%= f.text_field :bills %>
+
+      <%= f.label :date %>
+      <%= f.text_field :date %>
+
+      <%= f.submit "Submit Donation", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

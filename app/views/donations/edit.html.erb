@@ -1,0 +1,26 @@
+<% provide(:title, "Edit Donation") %>
+<h1>Update Donation details</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@donation) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.hidden_field :resource_id %>
+
+      <%= f.label :value, "Total Amount (Rs.)" %>
+      <%= f.number_field :value %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+
+      <%= f.label :bills, "Bills Link" %>
+      <%= f.text_field :bills %>
+
+      <%= f.label :date %>
+      <%= f.text_field :date %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary submit" %>
+    <% end %>
+  </div>
+</div>
