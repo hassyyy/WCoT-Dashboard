@@ -4,9 +4,9 @@
       <%= link_to "WCoT Dashboard", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
           <% if signed_in? %>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Help", help_path %></li>
             <li><%= link_to "Contributors", users_path %></li>
             <li><%= link_to "Resources", resources_path %></li>
             <li class="dropdown">
