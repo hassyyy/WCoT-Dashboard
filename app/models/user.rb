@@ -10,7 +10,6 @@
 #
 
 class User < ActiveRecord::Base
-  include ActiveModel::ForbiddenAttributesProtection
   attr_accessible :email, :name, :phone, :password, :password_confirmation, :avatar
   has_secure_password
   has_many :contributions, dependent: :destroy
