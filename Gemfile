@@ -8,6 +8,9 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'momentjs-rails'
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
+gem 'strong_parameters'
 
 group :development do
   gem 'annotate', '2.5.0'
