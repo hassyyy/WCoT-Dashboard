@@ -8,7 +8,7 @@
   <div class="hidden" show-hide-elements="how-to-contribute">
     <li>1. Go to your <a href= <%=user_path(current_user)%>>profile</a></li>
     <li>2. Submit your decided contribution for the month</li>
-    <li>3. After sending the money, inform the
+    <li>3. After sending the money<sup><a id="account-details-bookmark" href="#account-details">?</a></sup>, inform the
       <a href= <%= user_path(User.find_by_account_admin(true)) %> class="account-admin">Account Admin</a></li>
     <li>4. Track the status of your contribution by the text color:
       <span contribution-status="submitted">Submitted</span> /
@@ -22,7 +22,7 @@
   <div show-hide-trigger="account-details">
     <h2>Account Details</h2>
   </div>
-  <div class="hidden" show-hide-elements="account-details">
+  <div id="account-details" class="hidden" show-hide-elements="account-details">
     <div class="row">
       <div class="span4 upi">
         UPI: <strong>hassyyy@upi</strong><br>

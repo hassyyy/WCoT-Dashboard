@@ -15,6 +15,13 @@ $(function() {
   });
 });
 
+// Show Account Details on click of question mark
+$(function() {
+  $('#account-details-bookmark').click(function(event){
+    $('#account-details').show();
+  });
+});
+
 //Datepicker
 $(function() {
   $(CONTRIBUTIONS_FILTER_INPUT).datepicker({
