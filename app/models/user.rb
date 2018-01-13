@@ -10,9 +10,16 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :phone, :password, :password_confirmation
+  include ActiveModel::ForbiddenAttributesProtection
+  attr_accessible :email, :name, :phone, :password, :password_confirmation, :avatar
   has_secure_password
   has_many :contributions, dependent: :destroy
+  has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>' },
+    default_url: '/assets/Profile.png'
+
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
@@ -31,6 +38,7 @@ class User < ActiveRecord::Base
                        on: :create
   validates :password_confirmation, presence: true,
                                     on: :create
+  validates_attachment :avatar, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
 
   private
 
