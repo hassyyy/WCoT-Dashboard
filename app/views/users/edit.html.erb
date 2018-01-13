@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+    <%= form_for(@user, multipart: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
@@ -24,11 +24,19 @@
         <%= f.label :password_confirmation, "Confirm Password" %>
         <%= f.password_field :password_confirmation %>
       </div>
+
       <br>
+
+      <a href="#" show-hide-trigger="change-avatar" class="change-avatar">Change Picture</a>
+
+      <div class="hidden" show-hide-elements="change-avatar">
+        <%= f.file_field :avatar %>
+      </div>
+
+      <br>
+
       <%= f.submit "Save changes", class: "btn btn-large btn-primary submit" %>
     <% end %>
 
-    <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails" target="_blank">Change</a>
   </div>
 </div>

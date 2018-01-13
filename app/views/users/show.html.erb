@@ -9,7 +9,7 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= gravatar_for @user %>
+        <%= image_tag @user.avatar.url, :size => "80x80", :class => "avatar" %>
         <%= @user.name %>
       </h1>
         <%= @user.email %><br>
