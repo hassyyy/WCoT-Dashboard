@@ -10,6 +10,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'momentjs-rails'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
+gem 'font-awesome-rails'
 
 group :development do
   gem 'annotate', '2.5.0'
