@@ -33,7 +33,7 @@ $(function() {
       orientation: "auto",
       defaultDate: today,
       startDate: new Date('2017', '07'),
-      endDate: new Date(today.getFullYear(), today.getMonth())
+      endDate: today
   }).on('changeDate', function (ev) {
     var selected_values = $(CONTRIBUTIONS_FILTER_INPUT).val().split(" ")
     // console.log(selected_values[0].slice(0, 3))
@@ -52,7 +52,7 @@ $(function() {
     orientation: "bottom right",
     defaultDate: today,
     startDate: new Date('2017', '07', '01'),
-    endDate: new Date(today.getFullYear(), today.getMonth())
+    endDate: today
   });
 });
 
