@@ -11,6 +11,7 @@ gem 'momentjs-rails'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'font-awesome-rails'
+gem 'sendgrid-ruby'
 
 group :development do
   gem 'annotate', '2.5.0'
