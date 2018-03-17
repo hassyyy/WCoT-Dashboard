@@ -3,6 +3,9 @@ WcotDashboard::Application.routes.draw do
   resources :users
   resources :resources
   resources :donations
+  resources :meetings do
+    resources :user_meeting_statuses
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :contributions, only: [:create, :destroy, :update, :index]
 
@@ -15,4 +18,6 @@ WcotDashboard::Application.routes.draw do
 
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
+
+  match "/update_mom/:id" => 'meetings#update_mom', :as => :update_mom
 end
