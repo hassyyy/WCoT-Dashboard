@@ -1,0 +1,16 @@
+<% provide(:title, 'All Meetings') %>
+
+<div id="index-head">
+  <h1 class="meetings-list">All Meetings</h1>
+    <%= link_to new_meeting_path, :class =>'create-meeting' do %>
+      <%= image_tag('Meeting.png', :size => "30x30") %> Schedule a new meeting
+    <% end %>
+</div>
+
+<%= will_paginate %>
+
+<ul class="meetings">
+    <%= render @meetings %>
+</ul>
+
+<%= will_paginate %>

@@ -1,0 +1,74 @@
+<% provide(:title, @meeting.title) %>
+
+<div class="row">
+  <section>
+
+    <h1 class="center">
+      <%= @meeting.title %>
+      <% if Time.parse(@meeting.date) >= Time.now.getlocal("+05:30") %>
+        <%= link_to image_tag("Delete.png", :size => "25x25", alt: "Delete"), @meeting, method: :delete,
+                                                class: "delete-button",
+                                                data: { confirm: "You sure?" } %>
+        <%= link_to image_tag("Edit.png", :size => "25x25", alt: "Edit"), edit_meeting_path(@meeting),
+                                                class: "edit-button" %>
+      <% end %>
+    </h1>
+
+    <h5 class="center">
+      <%= @meeting.date %> </br>
+      <%= @meeting.starts_at %> - <%= @meeting.ends_at %>
+    </h5>
+
+    <div class="span6">
+      <h4>
+        <%= image_tag('Other_Details.png', :size => "30x30") %> Agenda
+      </h4>
+      <div class="meeting-agenda well ">
+        <%= raw @meeting.agenda %>
+      </div>
+      <div class="inline">
+        <h4>
+          <%= image_tag('Bill.png', :size => "30x30") %> Minutes of Meeting
+        </h4>
+        <% time_since_meeting_ended = Time.now.getlocal("+05:30") - Time.parse("#{@meeting.date} #{@meeting.ends_at}") %>
+        <% if (time_since_meeting_ended > 0) && (time_since_meeting_ended < 1.week)%>
+            <%= link_to 'Update', update_mom_path(@meeting),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#update-mom-modal', :class => 'right pad-top-15px'}  %>
+        <% end %>
+      </div>
+      <div id="update-mom-modal" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+      <div class="meeting-mom well ">
+        <%= raw @meeting.minutes_of_meeting %>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="inline">
+        <h4>
+          <%= image_tag('People.png', :size => "30x30") %> Contributors Status
+        </h4>
+        <% unless current_user.account_admin? or Time.parse("#{@meeting.date} #{@meeting.starts_at}") <= Time.now.getlocal("+05:30") %>
+          <a class="right pad-top-15px" show-hide-trigger="update-your-status">
+            Update Your Status
+          </a>
+        <% end %>
+      </div>
+      <% unless current_user.account_admin? %>
+        <div id="update-your-status" class="hidden" show-hide-elements="update-your-status">
+          <%= form_for [@meeting, @current_user_status] do |f| %>
+            <center>
+              <div class="current-user-meeting-status" >
+                <%= f.radio_button :status, 'Accepted' %> Yes
+                <%= f.radio_button :status, 'Declined' %> No
+                <%= f.radio_button :status, 'Tentative' %> Maybe
+              </div>
+              <%= f.submit "Update Status", class: "btn btn-small btn-primary submit" %>
+            </center>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="meeting-contributors-status well ">
+        <%= render 'meetings/user_statuses_list' %>
+      </div>
+    </div>
+  </section>
+</div>

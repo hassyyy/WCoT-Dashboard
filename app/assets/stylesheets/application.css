@@ -1,5 +1,6 @@
 /* *= require bootstrap-datepicker
 *= require bootstrap-wysihtml5
+*= require jquery.timepicker.css
 *= require font-awesome
 *= require_self
 *= require_tree . */
