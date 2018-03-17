@@ -5,7 +5,7 @@
 
     <h1 class="center">
       <%= @meeting.title %>
-      <% if Time.parse(@meeting.date) >= Time.now.getlocal("+05:30") %>
+      <% if Time.parse("#{meeting.date} +0530") >= Time.now.getlocal("+05:30") %>
         <%= link_to image_tag("Delete.png", :size => "25x25", alt: "Delete"), @meeting, method: :delete,
                                                 class: "delete-button",
                                                 data: { confirm: "You sure?" } %>
@@ -30,7 +30,7 @@
         <h4>
           <%= image_tag('Bill.png', :size => "30x30") %> Minutes of Meeting
         </h4>
-        <% time_since_meeting_ended = Time.now.getlocal("+05:30") - Time.parse("#{@meeting.date} #{@meeting.ends_at}") %>
+        <% time_since_meeting_ended = Time.now.getlocal("+05:30") - Time.parse("#{@meeting.date} #{@meeting.ends_at} +0530") %>
         <% if (time_since_meeting_ended > 0) && (time_since_meeting_ended < 1.week)%>
             <%= link_to 'Update', update_mom_path(@meeting),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#update-mom-modal', :class => 'right pad-top-15px'}  %>
         <% end %>
@@ -45,7 +45,7 @@
         <h4>
           <%= image_tag('People.png', :size => "30x30") %> Contributors Status
         </h4>
-        <% unless current_user.account_admin? or Time.parse("#{@meeting.date} #{@meeting.starts_at}") <= Time.now.getlocal("+05:30") %>
+        <% unless current_user.account_admin? or Time.parse("#{@meeting.date} #{@meeting.starts_at} +0530") <= Time.now.getlocal("+05:30") %>
           <a class="right pad-top-15px" show-hide-trigger="update-your-status">
             Update Your Status
           </a>
