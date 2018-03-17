@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.16'
+gem 'rails', '3.2.22'
 gem 'pg', '0.15.0'
 gem 'bootstrap-sass', '2.1'
 gem 'test-unit'
@@ -28,3 +28,4 @@ end
 gem 'jquery-rails', '2.0.2'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-wysihtml5-rails'
+gem 'jquery-timepicker-rails'
