@@ -24,9 +24,6 @@ class ContributionsController < ApplicationController
     redirect_back_or @contribution.user
   end
 
-  def destroy
-  end
-
   def index
     if request.xhr?
       @contributions_of_month = Contribution.where(:month => params[:month], :year => params[:year])
