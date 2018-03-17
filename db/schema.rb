@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180113102201) do
+ActiveRecord::Schema.define(:version => 20180309120200) do
 
   create_table "contributions", :force => true do |t|
     t.integer  "value"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(:version => 20180113102201) do
 
   add_index "donations", ["resource_id"], :name => "index_donations_on_resource_id"
 
+  create_table "meetings", :force => true do |t|
+    t.string   "title"
+    t.string   "agenda"
+    t.string   "date"
+    t.string   "starts_at"
+    t.string   "ends_at"
+    t.string   "minutes_of_meeting"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
   create_table "resources", :force => true do |t|
     t.string   "name"
     t.string   "address"
@@ -46,6 +57,16 @@ ActiveRecord::Schema.define(:version => 20180113102201) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  create_table "user_meeting_statuses", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "meeting_id"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_meeting_statuses", ["user_id", "meeting_id"], :name => "index_user_meeting_statuses_on_user_id_and_meeting_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

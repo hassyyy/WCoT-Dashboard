@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :phone, :password, :password_confirmation, :avatar
   has_secure_password
   has_many :contributions, dependent: :destroy
+  has_many :user_meeting_statuses, dependent: :destroy
   has_attached_file :avatar, styles: {
     thumb: '100x100>',
     square: '200x200#',
