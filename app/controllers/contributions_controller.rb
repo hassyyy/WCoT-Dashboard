@@ -1,4 +1,6 @@
 class ContributionsController < ApplicationController
+  include ContributionsHelper
+  
   before_filter :requires_login
 
   def create
@@ -21,6 +23,7 @@ class ContributionsController < ApplicationController
     store_location(request.referrer)
     @contribution = Contribution.find(params[:id])
     @contribution.update_attributes(status: "sent")
+    send_received_email(@contribution)
     redirect_back_or @contribution.user
   end
 
