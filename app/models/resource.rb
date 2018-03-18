@@ -4,6 +4,8 @@ class Resource < ActiveRecord::Base
 
   validates :name, presence: true
   validate :presence_of_address_or_contact
+  validates :contact_details, length: { maximum: 15, message: "cannot exceed 15 digits" },
+                              numericality: { only_integer: true }
 
   private
     def presence_of_address_or_contact
