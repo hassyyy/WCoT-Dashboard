@@ -1,0 +1,46 @@
+
+$grayLighter: #eee;
+
+/* new meeting */
+
+#meeting_agenda + input + iframe.wysihtml5-sandbox {
+  height: 150px !important;
+}
+
+.timepicker * {
+  width: 220 !important;
+}
+
+/* meetings index */
+
+.create-meeting{
+  display: inline-block;
+  float: right;
+}
+
+.meetings-list{
+  display: inline-block;
+  align-items: center;
+}
+
+.meetings {
+  list-style: none;
+  margin: 0;
+  li {
+    display: block;
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
+
+#meeting_minutes_of_meeting + input + iframe.wysihtml5-sandbox {
+  height: 150px !important;
+}
+
+.current-user-meeting-status{
+  margin-left: 20px;
+}

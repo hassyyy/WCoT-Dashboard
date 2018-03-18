@@ -6,7 +6,7 @@
     <span contribution-status="<%= contribution_in_a_month.status %>" class="row">
       <h6>Rs. <%= contribution_in_a_month.value %></h6>
 
-      <% if current_user.account_admin? && contribution_in_a_month.status === "submitted" && contribution_in_a_month.month === Time.now.strftime("%b") %>
+      <% if current_user.account_admin? && contribution_in_a_month.status === "submitted" && contribution_in_a_month.month === Time.now.getlocal("+05:30").strftime("%b") %>
         <%= form_for(contribution_in_a_month) do |f| %>
           <%= f.submit "Recieved" , class:"btn btn-success btn-small"%>
         <% end %>

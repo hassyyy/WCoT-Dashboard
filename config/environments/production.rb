@@ -79,4 +79,7 @@ WcotDashboard::Application.configure do
       s3_region: ENV.fetch('AWS_REGION')
     }
   }
+
+  config.sendgrid_api_key = ENV.fetch('SENDGRID_API_KEY')
+  
 end

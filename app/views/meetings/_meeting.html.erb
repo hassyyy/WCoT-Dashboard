@@ -1,0 +1,11 @@
+<li>
+  <%= link_to meeting.title, meeting %><br>
+  <%= meeting.date %> <!-- <%= meeting.date %> | <%= meeting.starts_at %> - <%= meeting.ends_at %> -->
+  <% if Time.parse("#{meeting.date} +0530") >= Time.now.getlocal("+05:30") %>
+    <%= link_to image_tag("Delete.png", :size => "25x25", alt: "Delete"), meeting, method: :delete,
+                                            class: "delete-button",
+                                            data: { confirm: "You sure?" } %>
+    <%= link_to image_tag("Edit.png", :size => "25x25", alt: "Edit"), edit_meeting_path(meeting),
+                                            class: "edit-button" %>
+  <% end %>
+</li>

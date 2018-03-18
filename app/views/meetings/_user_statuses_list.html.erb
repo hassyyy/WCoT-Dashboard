@@ -1,0 +1,15 @@
+<% status_text_map = { 'Invited' => 'Invitation Sent', 'Accepted' => 'Accepted', 'Declined' => 'Declined', 'Tentative' => 'Tentatively Accepted' } %>
+
+<div class="user-status-list">
+  <% status_text_map.each do |status, status_text| %>
+
+  <% user_status_collection = @user_statuses.select{ |user_status| user_status[:status] == status } %>
+  <% next if user_status_collection.empty? %>
+
+    <div user-status="<%= status.downcase %>">
+      <h4> <%= status_text %> </h4>
+      <%= render partial: 'meetings/user_status', collection: user_status_collection %>
+    </div>
+
+  <% end %>
+</div>

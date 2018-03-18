@@ -56,12 +56,38 @@ $(function() {
   });
 });
 
+$(function() {
+  $('#meeting_date').datepicker({
+    format: "MM dd, yyyy",
+    autoclose: true,
+    disableEntry: true,
+    forceParse: false,
+    orientation: "top right",
+    // startDate: today
+  });
+});
+
 //Show datepicker on click of icon
 $(function() {
   $(CONTRIBUTIONS_FILTER_ICON).click(function(event){
     event.preventDefault();
     $(CONTRIBUTIONS_FILTER_INPUT).datepicker('show');
   })
+});
+
+//Timepicker
+$(function() {
+  $('#meeting_starts_at').timepicker({
+    'timeFormat': 'h:i A',
+    'orientation': "lb"
+  });
+});
+
+$(function() {
+  $('#meeting_ends_at').timepicker({
+    'timeFormat': 'h:i A',
+    'orientation': "rb"
+  });
 });
 
 //Restore stored values on page load
