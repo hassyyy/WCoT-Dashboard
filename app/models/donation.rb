@@ -6,7 +6,8 @@ class Donation < ActiveRecord::Base
   validates :value, presence: true,
                     numericality: {
                                     only_integer: true,
-                                    greater_than: 0
+                                    greater_than: 0,
+                                    less_than_or_equal_to: 50000
                                   }
   validates :description, presence: true
   validates :bills, presence: true

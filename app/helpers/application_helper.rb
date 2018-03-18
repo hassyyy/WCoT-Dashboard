@@ -1,5 +1,4 @@
 module ApplicationHelper
-  include UsersHelper
   include SendGrid
 
   # Returns the full title on a per-page basis.
@@ -56,5 +55,9 @@ module ApplicationHelper
     puts response.status_code
     puts response.body
     puts response.headers
+  end
+
+  def account_admin_email
+    User.find_by_account_admin(true).email
   end
 end

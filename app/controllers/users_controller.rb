@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include UsersHelper
 
   before_filter :requires_login
   before_filter :has_access,   only: [:edit, :update]
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
       # sign_in @user
       # flash[:success] = "Welcome to the WCoT Dashboard!"
       redirect_to @user
+      send_welcome_email(@user)
     else
       render 'new'
     end
