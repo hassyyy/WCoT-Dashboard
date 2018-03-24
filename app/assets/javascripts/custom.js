@@ -63,7 +63,7 @@ $(function() {
     disableEntry: true,
     forceParse: false,
     orientation: "top right",
-    // startDate: today
+    startDate: today
   });
 });
 
