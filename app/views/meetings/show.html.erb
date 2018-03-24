@@ -1,4 +1,5 @@
 <% provide(:title, @meeting.title) %>
+<% old_meetings_identifier = "Old_Meeting_Created_Before_WCoT_Dashboard" %>
 
 <div class="row">
   <section>
@@ -20,12 +21,14 @@
     </h5>
 
     <div class="span6">
-      <h4>
-        <%= image_tag('Other_Details.png', :size => "30x30") %> Agenda
-      </h4>
-      <div class="meeting-agenda well ">
-        <%= raw @meeting.agenda %>
-      </div>
+      <% unless @meeting.agenda == old_meetings_identifier %>
+        <h4>
+          <%= image_tag('Other_Details.png', :size => "30x30") %> Agenda
+        </h4>
+        <div class="meeting-agenda well ">
+          <%= raw @meeting.agenda %>
+        </div>
+      <% end %>
       <div class="inline">
         <h4>
           <%= image_tag('Bill.png', :size => "30x30") %> Minutes of Meeting
@@ -40,7 +43,8 @@
         <%= raw @meeting.minutes_of_meeting %>
       </div>
     </div>
-    <div class="span6">
+    <% unless @meeting.agenda == old_meetings_identifier %>
+      <div class="span6">
       <div class="inline">
         <h4>
           <%= image_tag('People.png', :size => "30x30") %> Contributors Status
@@ -70,5 +74,6 @@
         <%= render 'meetings/user_statuses_list' %>
       </div>
     </div>
+    <% end %>
   </section>
 </div>
