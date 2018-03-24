@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180309120200) do
+ActiveRecord::Schema.define(:version => 20180324155112) do
 
   create_table "contributions", :force => true do |t|
     t.integer  "value"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20180309120200) do
     t.integer  "value"
     t.integer  "resource_id"
     t.string   "bills"
-    t.string   "description"
+    t.text     "description"
     t.date     "date"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -40,20 +40,20 @@ ActiveRecord::Schema.define(:version => 20180309120200) do
 
   create_table "meetings", :force => true do |t|
     t.string   "title"
-    t.string   "agenda"
+    t.text     "agenda"
     t.string   "date"
     t.string   "starts_at"
     t.string   "ends_at"
-    t.string   "minutes_of_meeting"
+    t.text     "minutes_of_meeting"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
 
   create_table "resources", :force => true do |t|
     t.string   "name"
-    t.string   "address"
+    t.text     "address"
     t.string   "contact_details"
-    t.string   "other_details"
+    t.text     "other_details"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
