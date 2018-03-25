@@ -56,6 +56,11 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    delayed_job (4.1.4)
+      activesupport (>= 3.0, < 5.2)
+    delayed_job_active_record (4.1.2)
+      activerecord (>= 3.0, < 5.2)
+      delayed_job (>= 3.0, < 5)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.23)
@@ -161,6 +166,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.6)
   bootstrap-wysihtml5-rails
   coffee-rails (= 3.2.2)
+  delayed_job_active_record
   font-awesome-rails
   jquery-rails (= 2.0.2)
   jquery-timepicker-rails
