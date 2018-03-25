@@ -1,4 +1,5 @@
 class Meeting < ActiveRecord::Base
+  include ApplicationHelper
   attr_accessible :agenda, :ends_at, :minutes_of_meeting, :starts_at, :title, :date
   has_many :user_meeting_statuses, dependent: :destroy
 
@@ -12,6 +13,13 @@ class Meeting < ActiveRecord::Base
   after_create :reminder
 
   def reminder
+    email_values = {
+      'to' => "mohamed.asan@freshworks.com",
+      'subject' => "WCoT Meeting Reminder: Today at #{starts_at}",
+      'body' => "#{title} - #{date}"
+    }
+
+    send_email(email_values)
   end
 
   def when_to_run
