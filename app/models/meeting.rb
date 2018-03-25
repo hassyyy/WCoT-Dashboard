@@ -9,6 +9,17 @@ class Meeting < ActiveRecord::Base
   validates :ends_at, presence: true
   validate :duration_of_meeting
 
+  after_create :reminder
+
+  def reminder
+  end
+
+  def when_to_run
+    Time.parse("#{date} #{starts_at} +0530") - 1.hour
+  end
+
+  handle_asynchronously :reminder, :run_at => Proc.new { |i| i.when_to_run }
+
   private
     def duration_of_meeting
       if Time.parse(ends_at) <= Time.parse(starts_at)
