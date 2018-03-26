@@ -16,7 +16,7 @@ class Meeting < ActiveRecord::Base
     email_values = {
       'to' => "mohamed.asan@freshworks.com",
       'subject' => "WCoT Meeting Reminder: Today at #{starts_at}",
-      'body' => "#{title} - #{date}"
+      'body' => reminder_email_body
     }
 
     send_email(email_values)
@@ -27,6 +27,42 @@ class Meeting < ActiveRecord::Base
   end
 
   handle_asynchronously :reminder, :run_at => Proc.new { |i| i.when_to_run }
+
+  def reminder_email_body
+    "<html>
+    <head>
+      <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+        table{
+          margin-top: 10px;
+          margin-bottom: 10px;
+          border-collapse: collapse;
+        }
+        td{
+          padding: 10px 10px 10px 10px;
+        }
+      </style>
+    </head>
+    <body>
+      You have been invited to attend the following meeting today: <br>
+      <table>
+        <tr>
+          <td>
+            <center> <strong> #{title} </strong> </center> <br>
+             #{date} (Today) <strong> | </strong>
+            <em> #{starts_at} - #{ends_at}  </em>
+          </td>
+          <td>
+            <center> <strong> Agenda </strong> </center> <br>
+            #{agenda}
+          </td>
+        </tr>
+      </table>
+    </body>
+    </html>"
+  end
 
   private
     def duration_of_meeting
