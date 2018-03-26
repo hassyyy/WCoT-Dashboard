@@ -90,6 +90,9 @@ class Meeting < ActiveRecord::Base
 
   private
     def duration_of_meeting
+      if Time.parse("#{date} #{starts_at} +0530") <= Time.now.getlocal("+05:30")
+        errors[:base] << "Start time cannot be lesser than current time. Specify a valid start time"
+      end
       if Time.parse(ends_at) <= Time.parse(starts_at)
         errors[:base] << "End time cannot be lesser than Start Time. Specify a valid end time"
       end
