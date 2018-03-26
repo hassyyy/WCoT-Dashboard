@@ -10,7 +10,7 @@ class Meeting < ActiveRecord::Base
   validates :ends_at, presence: true
   validate :duration_of_meeting
 
-  after_create :reminder
+  after_commit :reminder
 
   def reminder
     email_values = {
@@ -26,7 +26,19 @@ class Meeting < ActiveRecord::Base
     Time.parse("#{date} #{starts_at} +0530") - 1.hour
   end
 
-  handle_asynchronously :reminder, :run_at => Proc.new { |i| i.when_to_run }
+  def get_queue_name
+    queue_name = "meeting#{id}"
+    delete_existing_jobs(queue_name)
+    return queue_name
+  end
+
+  def delete_existing_jobs(queue_name)
+    Delayed::Job.find_all_by_queue(queue_name).each do |job|
+      job.delete
+    end
+  end
+
+  handle_asynchronously :reminder, :run_at => Proc.new { |i| i.when_to_run }, :queue => Proc.new { |i| i.get_queue_name }
 
   def reminder_email_body
     "<html>
