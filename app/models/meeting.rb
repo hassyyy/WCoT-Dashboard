@@ -10,7 +10,9 @@ class Meeting < ActiveRecord::Base
   validates :ends_at, presence: true
   validate :duration_of_meeting
 
-  after_commit :reminder
+  after_commit  ->(obj) { obj.reminder } , on: :create
+  after_commit  ->(obj) { obj.reminder } , on: :update
+  after_commit :get_queue_name, on: :destroy
 
   def reminder
     email_values = {
