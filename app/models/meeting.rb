@@ -15,13 +15,23 @@ class Meeting < ActiveRecord::Base
   after_commit :get_queue_name, on: :destroy
 
   def reminder
+    attending_user_emails = attending_users
+    return if attending_user_emails.empty?
+    
     email_values = {
-      'to' => "mohamed.asan@freshworks.com",
+      'to' => attending_user_emails,
       'subject' => "WCoT Meeting Reminder: Today at #{starts_at}",
       'body' => reminder_email_body
     }
-
     send_email(email_values)
+  end
+
+  def attending_users
+    attending_user_emails = Array.new
+    user_meeting_statuses.each do |user_status|
+      attending_user_emails << user_status.user.email if user_status.status == "Accepted" || user_status.status == "Tentative"
+    end
+    return attending_user_emails
   end
 
   def when_to_run
