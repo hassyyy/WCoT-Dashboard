@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require moment
 //= require bootstrap-datepicker
 //= require bootstrap-wysihtml5
 //= require jquery.timepicker.js

@@ -1,4 +1,6 @@
 var today = new Date();
+var current_time = moment();
+var nearest_half_hour = current_time.add(30 - current_time.minute() % 30, "minutes")
 var monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 const CONTRIBUTIONS_FILTER_INPUT = "#contributions-filter-input";
@@ -63,7 +65,7 @@ $(function() {
     disableEntry: true,
     forceParse: false,
     orientation: "top right",
-    startDate: today
+    startDate: nearest_half_hour.format('MMMM DD, YYYY')
   });
 });
 
@@ -79,7 +81,9 @@ $(function() {
 $(function() {
   $('#meeting_starts_at').timepicker({
     'timeFormat': 'h:i A',
-    'orientation': "lb"
+    'orientation': "lb",
+    'minTime' : nearest_half_hour.format("hh:mm A"),
+    'maxTime' : '11:30 PM'
   });
 });
 
