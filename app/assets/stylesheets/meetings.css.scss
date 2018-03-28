@@ -11,6 +11,11 @@ $grayLighter: #eee;
   width: 220 !important;
 }
 
+.ui-timepicker-wrapper {
+  height: auto;
+  max-height: 150px;
+}
+
 /* meetings index */
 
 .create-meeting{
