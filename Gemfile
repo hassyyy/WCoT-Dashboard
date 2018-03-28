@@ -13,6 +13,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'font-awesome-rails'
 gem 'sendgrid-ruby'
 gem 'delayed_job_active_record'
+gem "workless", "~> 2.2.0"
 
 group :development do
   gem 'annotate', '2.5.0'
