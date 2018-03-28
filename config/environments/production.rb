@@ -83,7 +83,7 @@ WcotDashboard::Application.configure do
   config.sendgrid_api_key = ENV.fetch('SENDGRID_API_KEY')
   
   config.after_initialize do
-    Delayed::Job.scaler = :heroku_cedar
+    Delayed::Job.scaler = :heroku
   end
 
 end
