@@ -90,7 +90,15 @@ $(function() {
 $(function() {
   $('#meeting_ends_at').timepicker({
     'timeFormat': 'h:i A',
-    'orientation': "rb"
+    'orientation': "rb",
+    'maxTime' : '11:30 PM'
+  });
+});
+
+$(function() {
+  $('#meeting_starts_at').on('changeTime', function() {
+    var ends_at_minTime = moment($(this).val(), 'hh:mm A').add(30, 'minutes').format("hh:mm A") //add 30 mins to selected start time
+    $('#meeting_ends_at').timepicker('option', 'minTime', ends_at_minTime);
   });
 });
 
