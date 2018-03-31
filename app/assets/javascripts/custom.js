@@ -1,6 +1,6 @@
 var today = new Date();
 var current_time = moment();
-var nearest_half_hour = current_time.add(30 - current_time.minute() % 30, "minutes")
+var nearest_half_hour = current_time.add(30 - current_time.minute() % 30, "minutes");
 var monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 const CONTRIBUTIONS_FILTER_INPUT = "#contributions-filter-input";
@@ -66,6 +66,13 @@ $(function() {
     forceParse: false,
     orientation: "top right",
     startDate: nearest_half_hour.format('MMMM DD, YYYY')
+  }).on('changeDate', function () {
+    if(moment($(this).val(), 'MMMM DD, YYYY').format('MMMM DD, YYYY') != nearest_half_hour.format('MMMM DD, YYYY')){
+      $('#meeting_starts_at').timepicker('option', 'minTime', '12:00 AM');
+    }
+    else{
+      $('#meeting_starts_at').timepicker('option', 'minTime', nearest_half_hour.format("hh:mm A"));
+    }
   });
 });
 
