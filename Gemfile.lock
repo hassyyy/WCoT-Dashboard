@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/hassyyy/workless.git
+  revision: d1e16ee2e85042cef0b123f67c79856f833ac8a2
+  specs:
+    workless (2.2.0)
+      delayed_job (>= 2.0.7)
+      platform-api
+      rails
+      rush
+      uptimerobot
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -64,6 +75,10 @@ GEM
     erubis (2.7.0)
     excon (0.62.0)
     execjs (2.7.0)
+    faraday (0.14.0)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.12.2)
+      faraday (>= 0.7.4, < 1.0)
     ffi (1.9.23)
     font-awesome-rails (4.7.0.3)
       railties (>= 3.2, < 5.2)
@@ -92,6 +107,7 @@ GEM
       railties (>= 3.1)
     moneta (0.8.1)
     multi_json (1.13.1)
+    multipart-post (2.0.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     paperclip (4.3.7)
@@ -165,12 +181,10 @@ GEM
     uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    uptimerobot (0.2.0)
+      faraday (>= 0.8)
+      faraday_middleware
     will_paginate (3.0.3)
-    workless (2.2.0)
-      delayed_job (>= 2.0.7)
-      platform-api
-      rails
-      rush
 
 PLATFORMS
   ruby
@@ -197,7 +211,7 @@ DEPENDENCIES
   test-unit
   uglifier (= 1.2.3)
   will_paginate (= 3.0.3)
-  workless (~> 2.2.0)
+  workless!
 
 BUNDLED WITH
    1.16.1
