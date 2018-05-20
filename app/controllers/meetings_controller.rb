@@ -2,6 +2,8 @@ class MeetingsController < ApplicationController
   include MeetingsHelper
   include SessionsHelper
 
+  before_filter :requires_login
+
   def new
     @meeting = Meeting.new
   end
