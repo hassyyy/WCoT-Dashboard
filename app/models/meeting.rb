@@ -15,6 +15,7 @@ class Meeting < ActiveRecord::Base
   after_commit :get_queue_name, on: :destroy
 
   def reminder
+    return if (Time.parse("#{date} #{starts_at} +0530") - 1.hour) <= Time.now.getlocal("+05:30") 
     attending_user_emails = attending_users
     return if attending_user_emails.empty?
     
