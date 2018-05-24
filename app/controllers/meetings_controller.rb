@@ -45,7 +45,7 @@ class MeetingsController < ApplicationController
   def update
     @meeting = Meeting.find(params[:id])
     if @meeting.update_attributes(params[:meeting])
-      flash[:success] = "Meeting updated!"
+      update_contributors(@meeting)
       redirect_back_or @meeting
     else
       render 'edit'
