@@ -244,6 +244,9 @@ input {
   font-size: 20px;
   background-color: green;
 }
+.contribution-total + br{
+  line-height: 25px;
+}
 #conributions-donations{
   margin-left: 0px;
 }
