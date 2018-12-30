@@ -1,5 +1,5 @@
 <li class="row alert alert-info">
-  <a class="donation-details" show-hide-trigger="donation[<%= donation.id %>]">
+  <a class="donation-details span5" show-hide-trigger="donation[<%= donation.id %>]">
     <h4>
       <span class="donation-value">Rs. <%= donation.value %></span> |
       <span class="donation-date"><%= Date.parse(donation.date.to_s).strftime("%B %d, %Y") %></span>
@@ -8,7 +8,7 @@
                                             class: "edit-button" %>
   </a>
   <div class="hidden" show-hide-elements="donation[<%= donation.id %>]">
-    <div class="span6">
+    <div class="span5">
       <h5>
         <%= image_tag('Info.png', :size => "30x30") %> Description
       </h5>

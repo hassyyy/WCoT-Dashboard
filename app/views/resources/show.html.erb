@@ -23,33 +23,33 @@
       <div class="resource-contact well ">
         <%= @resource.contact_details %>
       </div>
+        <h4>
+          <%= image_tag('Other_Details.png', :size => "30x30") %> Other Details
+        </h4>
+        <div class="resource-info well ">
+          <%= raw @resource.other_details %>
+        </div>
     </div>
     <div class="span6">
-      <h4>
-        <%= image_tag('Other_Details.png', :size => "30x30") %> Other Details
-      </h4>
-      <div class="resource-info well ">
-        <%= raw @resource.other_details %>
+      <div class="donations-head">
+        <h3 class="donations-title">
+          <%= image_tag('Donation.png', :size => "35x35") %>
+          Donations
+        </h3>
+        <%= link_to new_donation_path(:resource => @resource), :class =>'create-donation' do %>
+          <h4> Submit a new donation </h4>
+        <% end %>
+      </div>
+      <div class="donations-list">
+        <ol class="donations">
+        <% if @donations.length > 0 %>
+          <%= render @donations %>
+          <%= will_paginate @donations %>
+        <% else %>
+          <div class="alert alert-info">This resource has not received any donations from us!</div>
+        <% end %>
+        </ol>
       </div>
     </div>
   </section>
-</div>
-
-<div class="row">
-  <div class="donations-head">
-    <h3 class="donations-title">Donations</h3>
-    <%= link_to new_donation_path(:resource => @resource), :class =>'create-donation' do %>
-      <%= image_tag('Donation.png', :size => "30x30") %> Submit a new donation
-    <% end %>
-  </div>
-  <div class="donations-list span8">
-    <ol class="donations">
-    <% if @donations.length > 0 %>
-      <%= render @donations %>
-      <%= will_paginate @donations %>
-    <% else %>
-      <div class="alert alert-info">This resource has not received any donations from us!</div>
-    <% end %>
-    </ol>
-  </div>
 </div>

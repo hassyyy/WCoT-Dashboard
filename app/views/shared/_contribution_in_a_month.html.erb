@@ -1,8 +1,10 @@
 <% user = User.find(contribution_in_a_month.user_id) %>
 <li>
   <div>
-    <%= image_tag user.avatar.url, :size => "80x80", :class => "avatar" %>
-    <strong><%= user.name %></strong>
+    <%= link_to user_path(user) do %>
+      <%= image_tag user.avatar.url, :size => "80x80", :class => "avatar" %>
+      <strong><%= user.name %></strong>
+    <% end %>
     <span contribution-status="<%= contribution_in_a_month.status %>" class="row">
       <h6>Rs. <%= contribution_in_a_month.value %></h6>
 
