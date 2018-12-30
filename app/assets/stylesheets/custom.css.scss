@@ -245,7 +245,7 @@ input {
   background-color: green;
 }
 #contributions-index{
-  border-right: 1px solid #ccc;
+  margin-left: 0px;
 }
 .contributions-index-head * {
   text-align: center;
@@ -276,6 +276,11 @@ input {
 ol.monthly_contributions {
   list-style-type: none;
 }
+
+#donations-index{
+  border-left: 1px solid #ccc;
+}
+
 /* contributions status*/
 [contribution-status='submitted']{
   color: red;
