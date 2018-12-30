@@ -6,6 +6,7 @@
   <% else %>
     <ol class="donations-list">
       <%= render partial: 'shared/donation', collection: @donations %>
+      <%= will_paginate @donations %>
     </ol>
   <% end %>
 

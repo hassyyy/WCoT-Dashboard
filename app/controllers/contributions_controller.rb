@@ -35,7 +35,7 @@ class ContributionsController < ApplicationController
     else
       @contributions_of_month = Contribution.where(:month => Time.now.getlocal("+05:30").strftime("%b"), :year => Time.now.getlocal("+05:30").strftime("%Y"))
       @total_contributions_of_month = Contribution.where(:month => Time.now.getlocal("+05:30").strftime("%b"), :year => Time.now.getlocal("+05:30").strftime("%Y"), :status => "sent").sum(:value)
-      @donations = Donation.all
+      @donations = Donation.all.paginate(page: params[:page], :per_page => 5)
       render 'index'
     end
   end
