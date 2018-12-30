@@ -9,7 +9,7 @@
   Overall Donations : <span class="badge donations-total">Rs.<%= total_donations %></span>
 </div>
 
-<div class="row">
+<div class="row" id="conributions-donations">
   <div id="contributions-index" class="span6">
     <div class="contributions-index-head center">
       <%= image_tag('Charity.png', :size => "50x50") %><br>
@@ -20,7 +20,7 @@
 
     <%= render partial: 'contributions_of_month' %>
   </div>
-  <div id="donations-index" class="span5">
+  <div id="donations-index" class="span6">
     <div class="donations-index-head center">
       <%= image_tag('Donation.png', :size => "50x50") %>
       <h2> Donations </h2>
