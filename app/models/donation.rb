@@ -1,5 +1,5 @@
 class Donation < ActiveRecord::Base
-  attr_accessible :resource_id, :value, :description, :bills, :date
+  attr_accessible :resource_id, :value, :description, :date
   belongs_to :resource
 
   validates :resource_id, presence: true
@@ -10,7 +10,6 @@ class Donation < ActiveRecord::Base
                                     less_than_or_equal_to: 50000
                                   }
   validates :description, presence: true
-  validates :bills, presence: true
   validates :date, presence: true
 
   default_scope order: 'donations.created_at DESC'
