@@ -1,5 +1,5 @@
 class Contribution < ActiveRecord::Base
-  attr_accessible  :value, :month, :year, :status, :mode
+  attr_accessible  :value, :month, :year, :status
   belongs_to :user
 
   validates :user_id, presence: true

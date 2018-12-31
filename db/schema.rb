@@ -11,14 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180325033054) do
+ActiveRecord::Schema.define(:version => 20181231163138) do
 
   create_table "contributions", :force => true do |t|
     t.integer  "value"
     t.string   "month"
     t.integer  "year"
     t.string   "status"
-    t.string   "mode"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -45,7 +44,6 @@ ActiveRecord::Schema.define(:version => 20180325033054) do
   create_table "donations", :force => true do |t|
     t.integer  "value"
     t.integer  "resource_id"
-    t.string   "bills"
     t.text     "description"
     t.date     "date"
     t.datetime "created_at",  :null => false
