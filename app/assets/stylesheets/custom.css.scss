@@ -237,14 +237,14 @@ input {
 .contributions-year {
   color: $grayLight;
 }
-.contribution-total{
+.contributions-total{
   background-color: green;
 }
 .current-balance{
   font-size: 20px;
   background-color: green;
 }
-.contribution-total + br{
+.contributions-total + br{
   line-height: 25px;
 }
 #contributions-donations{
