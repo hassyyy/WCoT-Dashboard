@@ -21,7 +21,7 @@
     <% user_contribution = @user.contributions.where(:status => "sent").sum(:value) %>
     <%= user_pronoun %>
     <% if user_contribution > 0 %>
-      contributed a total of <span class="badge contribution-total">Rs.<%= user_contribution %></span> so far.
+      contributed a total of <span class="badge contributions-total">Rs.<%= user_contribution %></span> so far.
     <% else %>
       not contributed anything yet.
     <% end %>

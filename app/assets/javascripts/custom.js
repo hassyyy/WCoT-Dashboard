@@ -5,6 +5,8 @@ var monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
 const CONTRIBUTIONS_FILTER_INPUT = "#contributions-filter-input";
 const CONTRIBUTIONS_FILTER_ICON = "#contributions-filter-icon";
+const DONATIONS_FILTER_INPUT = "#donations-filter-input";
+const DONATIONS_FILTER_ICON = "#donations-filter-icon";
 // console.log(today);
 
 // Handle Show/Hide {Alternative: Bootstrap Collapse[https://www.w3schools.com/bootstrap/bootstrap_collapse.asp]}
@@ -42,6 +44,22 @@ $(function() {
     // console.log(selected_values[1])
 
     update_contributions_index(selected_values[0].slice(0, 3), selected_values[1])
+  });
+});
+
+$(function() {
+  $(DONATIONS_FILTER_INPUT).datepicker({
+      format: "yyyy",
+      minViewMode: 2,
+      autoclose: true,
+      disableEntry: true,
+      forceParse: false,
+      orientation: "auto",
+      defaultDate: today,
+      startDate: new Date('2017'),
+      endDate: today
+  }).on('changeDate', function (ev) {
+    update_donations_index($(DONATIONS_FILTER_INPUT).val())
   });
 });
 
@@ -84,6 +102,14 @@ $(function() {
   })
 });
 
+//Show datepicker on click of icon
+$(function() {
+  $(DONATIONS_FILTER_ICON).click(function(event){
+    event.preventDefault();
+    $(DONATIONS_FILTER_INPUT).datepicker('show');
+  })
+});
+
 //Timepicker
 $(function() {
   $('#meeting_starts_at').timepicker({
@@ -116,6 +142,12 @@ $(document).ready(function(){
   }
 });
 
+$(document).ready(function(){
+  if($(DONATIONS_FILTER_INPUT).is(':visible')) {
+    $(DONATIONS_FILTER_INPUT).val(today.getFullYear())
+  }
+});
+
 //Rich Text Editor
 $(document).ready(function(){
   $('textarea').each(function(i, element) {
@@ -132,6 +164,18 @@ function update_contributions_index(month, year) {
     success:function (data) {
       // console.log("Ajax Success");
       $('#monthly_contributions').html(data)
+    }
+  })
+}
+
+function update_donations_index(year) {
+  $.ajax({
+    url: "contributions",
+    data: 'donation_year=' + year,
+    cache:false,
+    success:function (data) {
+      // console.log("Ajax Success");
+      $('#all-donations').html(data)
     }
   })
 }

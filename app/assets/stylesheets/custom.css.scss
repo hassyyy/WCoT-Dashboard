@@ -237,14 +237,14 @@ input {
 .contributions-year {
   color: $grayLight;
 }
-.contribution-total{
+.contributions-total{
   background-color: green;
 }
 .current-balance{
   font-size: 20px;
   background-color: green;
 }
-.contribution-total + br{
+.contributions-total + br{
   line-height: 25px;
 }
 #contributions-donations{
@@ -263,10 +263,10 @@ input {
     margin-bottom: 20px;
     margin-left: 10px;
   }
-#contributions-month-total{
+#contributions-month-total, #donations-year-total{
   margin-bottom: 20px;
 }
-#contributions-filter-input {
+#contributions-filter-input, #donations-filter-input {
   cursor: pointer;
   width: auto;
   height: auto;
@@ -278,7 +278,7 @@ input {
   border-radius: 50px;
   border: 0px;
 }
-#contributions-filter-icon {
+#contributions-filter-icon, #donations-filter-icon {
   cursor: pointer;
 }
 ol.monthly_contributions {
@@ -289,7 +289,22 @@ ol.monthly_contributions {
   margin-left: 0px;
   border-left: 1px solid #ccc;
 }
+.donations-index-head * {
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+}
+.donations-index-head img{
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
 
+#not-found {
+  text-align: center;
+  width: fit-content;
+  margin-left: 75px;
+  padding: 10px;
+}
 /* contributions status*/
 [contribution-status='submitted']{
   color: red;
