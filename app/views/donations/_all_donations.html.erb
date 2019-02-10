@@ -1,13 +1,14 @@
 <div id="all-donations">
-  <% if Donation.sum(:value) == 0 %>
-  <div class="alert alert-danger">
-    No donations found!
-  </div>
-  <% else %>
+  <% if @donations.any? %>
+    <h4 class="center" id="donations-year-total">
+      Total Donations :  <span class="badge donations-total">Rs.<%= @donations.sum(:value) %></span>
+    </h4>
     <ol class="donations-list">
       <%= render partial: 'shared/donation', collection: @donations %>
-      <%= will_paginate @donations %>
     </ol>
+  <% else %>
+    <div class="alert alert-danger" id="not-found">
+      No donations found in the selected year!
+    </div>
   <% end %>
-
 </div>

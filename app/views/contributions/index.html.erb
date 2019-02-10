@@ -22,8 +22,10 @@
   </div>
   <div id="donations-index" class="span6">
     <div class="donations-index-head center">
-      <%= image_tag('Donation.png', :size => "50x50") %>
-      <h2> Donations </h2>
+      <%= image_tag('Donation.png', :size => "50x50") %><br>
+      <h2> Donations of </h2>
+      <%= image_tag("Calendar.png", :size => "35x35", id:"donations-filter-icon") %>
+      <input type="text" id="donations-filter-input" readonly='true' class="form-control" />
     </div>
     <%= render partial: 'donations/all_donations' %>
   </div>
