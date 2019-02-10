@@ -29,13 +29,18 @@ class ContributionsController < ApplicationController
 
   def index
     if request.xhr?
-      @contributions_of_month = Contribution.where(:month => params[:month], :year => params[:year])
-      @total_contributions_of_month = Contribution.where(:month => params[:month], :year => params[:year], :status => "sent").sum(:value)
-      render partial: 'contributions_of_month'
+      if params[:donation_year]
+        @donations = Donation.where('extract(year from date) = ?', params[:donation_year])
+        render partial: 'donations/all_donations'
+      else
+        @contributions_of_month = Contribution.where(:month => params[:month], :year => params[:year])
+        @total_contributions_of_month = @contributions_of_month.where(:status => "sent").sum(:value)
+        render partial: 'contributions_of_month'
+      end
     else
       @contributions_of_month = Contribution.where(:month => Time.now.getlocal("+05:30").strftime("%b"), :year => Time.now.getlocal("+05:30").strftime("%Y"))
-      @total_contributions_of_month = Contribution.where(:month => Time.now.getlocal("+05:30").strftime("%b"), :year => Time.now.getlocal("+05:30").strftime("%Y"), :status => "sent").sum(:value)
-      @donations = Donation.order.paginate(page: params[:page], :per_page => 5)
+      @total_contributions_of_month = @contributions_of_month.where(:status => "sent").sum(:value)
+      @donations = Donation.where('extract(year from date) = ?', Time.now.getlocal("+05:30").strftime("%Y"))
       render 'index'
     end
   end
