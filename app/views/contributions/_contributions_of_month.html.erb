@@ -1,16 +1,14 @@
 <div id="monthly_contributions">
-  <% if @contributions_of_month.length == 0 %>
-  <div class="alert alert-danger">
-    No contributions found in the selected month!
-  </div>
-  <% else %>
+  <% if @contributions_of_month.any? %>
     <h4 class="center" id="contributions-month-total">
       Total Contributions :  <span class="badge contributions-total">Rs.<%= @total_contributions_of_month %></span>
     </h4>
-
     <ol class="monthly_contributions">
       <%= render partial: 'shared/contribution_in_a_month', collection: @contributions_of_month %>
     </ol>
+  <% else %>
+    <div class="alert alert-danger" id="not-found">
+      No contributions found in the selected month!
+    </div>
   <% end %>
-
 </div>
