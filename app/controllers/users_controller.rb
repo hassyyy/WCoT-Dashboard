@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @previous_contributions = @user.contributions.where("month != ? or year != ?", Date.today.strftime("%b"), Date.today.strftime("%Y")).paginate(page: params[:page], :per_page => 10)
-    @new_contribution = current_user.contributions.build
+    @new_contribution = current_user.contributions.build(value: @user.contributions.last.try(:value))
   end
 
   def edit
