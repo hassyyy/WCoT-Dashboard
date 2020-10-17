@@ -4,8 +4,10 @@
       <span class="donation-value">Rs. <%= donation.value %></span> |
       <span class="donation-date"><%= Date.parse(donation.date.to_s).strftime("%B %d, %Y") %></span>
     </h4>
-    <%= link_to image_tag("Edit.png", :size => "25x25", alt: "Edit"), edit_donation_path(donation),
-                                            class: "edit-button" %>
+    <% if current_user.account_admin? %>
+      <%= link_to image_tag("Edit.png", :size => "25x25", alt: "Edit"), edit_donation_path(donation),
+                                              class: "edit-button" %>
+    <% end %>                                        
   </a>
   <div class="hidden" show-hide-elements="donation[<%= donation.id %>]">
     <div class="span5">

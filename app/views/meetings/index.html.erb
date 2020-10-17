@@ -2,9 +2,11 @@
 
 <div id="index-head">
   <h1 class="meetings-list">All Meetings</h1>
+  <% if current_user.account_admin? %>
     <%= link_to new_meeting_path, :class =>'create-meeting' do %>
       <%= image_tag('Meeting.png', :size => "30x30") %> Schedule a new meeting
     <% end %>
+  <% end %>
 </div>
 
 <%= will_paginate %>

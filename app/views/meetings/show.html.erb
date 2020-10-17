@@ -6,7 +6,7 @@
 
     <h1 class="center">
       <%= @meeting.title %>
-      <% if Time.parse("#{@meeting.date} #{@meeting.starts_at} +0530") >= Time.now.getlocal("+05:30") %>
+      <% if current_user.account_admin? && Time.parse("#{@meeting.date} #{@meeting.starts_at} +0530") >= Time.now.getlocal("+05:30") %>
         <%= link_to image_tag("Delete.png", :size => "25x25", alt: "Delete"), @meeting, method: :delete,
                                                 class: "delete-button",
                                                 data: { confirm: "You sure?" } %>

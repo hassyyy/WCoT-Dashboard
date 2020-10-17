@@ -2,9 +2,11 @@
 
 <div id="index-head">
   <h1 class="resources-list">All Resources</h1>
+  <% if current_user.account_admin? %>
     <%= link_to new_resource_path, :class =>'create-resource' do %>
       <%= image_tag('Charity.png', :size => "30x30") %> Create a new resource
     <% end %>
+  <% end %>
 </div>
 
 <%= will_paginate %>
