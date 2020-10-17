@@ -4,11 +4,13 @@
   <section>
     <h1 class="center">
       <%= @resource.name %>
-      <%= link_to image_tag("Delete.png", :size => "25x25", alt: "Delete"), @resource, method: :delete,
-                                              class: "delete-button",
-                                              data: { confirm: "You sure?" } %>
-      <%= link_to image_tag("Edit.png", :size => "25x25", alt: "Edit"), edit_resource_path(@resource),
-                                              class: "edit-button" %>
+      <% if current_user.account_admin? %>
+        <%= link_to image_tag("Delete.png", :size => "25x25", alt: "Delete"), @resource, method: :delete,
+                                                class: "delete-button",
+                                                data: { confirm: "You sure?" } %>
+        <%= link_to image_tag("Edit.png", :size => "25x25", alt: "Edit"), edit_resource_path(@resource),
+                                                class: "edit-button" %>
+      <% end %>
     </h1>
     <div class="span6">
       <h4>
@@ -36,8 +38,10 @@
           <%= image_tag('Donation.png', :size => "35x35") %>
           Donations
         </h3>
-        <%= link_to new_donation_path(:resource => @resource), :class =>'create-donation' do %>
-          <h4> Submit a new donation </h4>
+        <% if current_user.account_admin? %>
+          <%= link_to new_donation_path(:resource => @resource), :class =>'create-donation' do %>
+            <h4> Submit a new donation </h4>
+          <% end %>
         <% end %>
       </div>
       <div class="donations-list">
