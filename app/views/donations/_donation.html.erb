@@ -1,13 +1,18 @@
 <li class="row alert alert-info">
-  <a class="donation-details span5" show-hide-trigger="donation[<%= donation.id %>]">
+  <a class="donation-details span4" show-hide-trigger="donation[<%= donation.id %>]">
     <h4>
       <span class="donation-value">Rs. <%= donation.value %></span> |
       <span class="donation-date"><%= Date.parse(donation.date.to_s).strftime("%B %d, %Y") %></span>
     </h4>
     <% if current_user.account_admin? %>
+      <% if @resource.internal? %>
+        <%= link_to image_tag("Delete.png", :size => "25x25", alt: "Delete"), donation, method: :delete,
+                                                class: "delete-button",
+                                                data: { confirm: "You sure?" } %>
+      <% end %>
       <%= link_to image_tag("Edit.png", :size => "25x25", alt: "Edit"), edit_donation_path(donation),
                                               class: "edit-button" %>
-    <% end %>                                        
+    <% end %>
   </a>
   <div class="hidden" show-hide-elements="donation[<%= donation.id %>]">
     <div class="span5">

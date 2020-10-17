@@ -4,6 +4,9 @@
     <%= link_to resource_path(resource) do %>
       <h4>
         <span class="resource"><%= resource.name %></span>
+        <% if resource.internal %>
+          <span class="badge badge-important pull-right">Internal</span>
+        <% end %>
       </h4>
     <% end %>
     <h6>
