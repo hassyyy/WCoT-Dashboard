@@ -33,4 +33,12 @@ class DonationsController < ApplicationController
     end
   end
 
+  def destroy
+    donation = Donation.find(params[:id])
+    resource = donation.resource
+    donation.destroy
+    flash[:success] = "Donation is successfully deleted."
+    redirect_to resource
+  end
+
 end

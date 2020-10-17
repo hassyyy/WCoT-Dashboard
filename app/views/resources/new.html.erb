@@ -18,6 +18,11 @@
       <%= f.label :other_details %>
       <%= f.text_area :other_details %>
 
+      <label class="checkbox">
+        <%= f.check_box :internal %>
+        <span> Internal </span>
+      </label>
+
       <%= f.submit "Create Resource", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
