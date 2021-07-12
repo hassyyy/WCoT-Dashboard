@@ -4,33 +4,47 @@
 *= require font-awesome
 *= require_self
 *= require_tree . */
-
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-image: linear-gradient(to bottom, #00695c, #00897b);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #009688;
+}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 
-ul.dropdown-content{
+ul.dropdown-content {
   list-style: none;
+}
+
+#navbar-bg {
+  background-image: linear-gradient(to bottom, #00695c, #00897b);
+}
+
+.nav a {
+  font-size: 20px;
+  color: #eeeeee !important;
+}
+
+.nav a:hover {
+  background-color: #009688 !important;
 }

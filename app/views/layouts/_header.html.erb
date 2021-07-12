@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
+  <div class="navbar-inner" id="navbar-bg">
     <div class="container">
-      <%= link_to "WCoT Dashboard", root_path, id: "logo" %>
+      <%= link_to image_tag("wcot_logo.png", alt: "WCoT", style: 'height:25px;margin-bottom:5px;'), root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
           <% if signed_in? %>

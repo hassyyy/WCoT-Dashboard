@@ -76,16 +76,8 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  letter-spacing: -1px;
   padding-top: 9px;
-  font-weight: bold;
   line-height: 1;
-  &:hover {
-    color: cyan;
-    text-decoration: none;
-  }
 }
 
 #sign-out{
@@ -108,16 +100,6 @@ footer {
 
 .wrap{
     text-align:center
-}
-.footer-left{
-    float: left;
-}
-.footer-center{
-  display:inline-block;
-}
-.footer-right{
-    float: right;
-    vertical-align: top;
 }
 
 /* sidebar */
