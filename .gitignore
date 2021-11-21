@@ -17,3 +17,5 @@
 # Ignore database configurations
 /config/database.yml
 /Sample Data
+
+*.DS_Store
