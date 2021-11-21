@@ -60,6 +60,7 @@ GEM
       json (~> 1.4)
       nokogiri (~> 1)
     bcrypt-ruby (3.0.1)
+    bigdecimal (1.4.2)
     bootstrap-datepicker-rails (1.7.1.1)
       railties (>= 3.0)
     bootstrap-sass (2.1.0.0)
@@ -201,6 +202,7 @@ DEPENDENCIES
   annotate (= 2.5.0)
   aws-sdk (< 2.0)
   bcrypt-ruby (= 3.0.1)
+  bigdecimal (= 1.4.2)
   bootstrap-datepicker-rails
   bootstrap-sass (= 2.1)
   bootstrap-will_paginate (= 0.0.6)

@@ -16,6 +16,7 @@ gem 'font-awesome-rails'
 gem 'sendgrid-ruby'
 gem 'delayed_job_active_record'
 gem "workless", git: "https://github.com/hassyyy/workless.git"
+gem 'bigdecimal', '1.4.2'
 
 group :development do
   gem 'annotate', '2.5.0'
