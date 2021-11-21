@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/hassyyy/paperclip.git
-  revision: 2281bfc880ed09ec715c03c96eeb8be196005bdf
+  revision: 01b3d08cf5b4778a0c918d03731409f6daea1dda
   branch: v4.4.0
   specs:
     paperclip (4.3.7)
@@ -8,7 +8,7 @@ GIT
       activesupport (>= 3.2.0)
       cocaine (~> 0.5.5)
       mime-types
-      mimemagic (~> 0.4.0)
+      mimemagic (= 0.3.10)
 
 GIT
   remote: https://github.com/hassyyy/workless.git
@@ -113,7 +113,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    mimemagic (0.4.3)
+    mimemagic (0.3.10)
       nokogiri (~> 1)
       rake
     mini_portile2 (2.3.0)
