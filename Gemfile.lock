@@ -1,4 +1,16 @@
 GIT
+  remote: https://github.com/hassyyy/paperclip.git
+  revision: 2281bfc880ed09ec715c03c96eeb8be196005bdf
+  branch: v4.4.0
+  specs:
+    paperclip (4.3.7)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (~> 0.4.0)
+
+GIT
   remote: https://github.com/hassyyy/workless.git
   revision: d1e16ee2e85042cef0b123f67c79856f833ac8a2
   specs:
@@ -101,7 +113,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    mimemagic (0.3.0)
+    mimemagic (0.4.3)
+      nokogiri (~> 1)
+      rake
     mini_portile2 (2.3.0)
     momentjs-rails (2.17.1)
       railties (>= 3.1)
@@ -110,12 +124,6 @@ GEM
     multipart-post (2.0.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
-    paperclip (4.3.7)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      cocaine (~> 0.5.5)
-      mime-types
-      mimemagic (= 0.3.0)
     pg (0.15.0)
     platform-api (2.1.0)
       heroics (~> 0.0.23)
@@ -203,7 +211,7 @@ DEPENDENCIES
   jquery-rails (= 2.0.2)
   jquery-timepicker-rails
   momentjs-rails
-  paperclip
+  paperclip!
   pg (= 0.15.0)
   rails (= 3.2.22)
   sass-rails (= 3.2.5)
@@ -212,6 +220,9 @@ DEPENDENCIES
   uglifier (= 1.2.3)
   will_paginate (= 3.0.3)
   workless!
+
+RUBY VERSION
+   ruby 2.7.1p83
 
 BUNDLED WITH
    1.16.1
