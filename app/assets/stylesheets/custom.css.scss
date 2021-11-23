@@ -148,6 +148,7 @@ aside {
 .avatar {
   float: left;
   margin-right: 10px;
+  border-radius: 50px;
 }
 
 /* forms */
@@ -283,6 +284,10 @@ input {
 }
 ol.monthly_contributions {
   list-style-type: none;
+}
+
+.monthly_contributions li {
+  margin-top: 10px;
 }
 
 #donations-index{
