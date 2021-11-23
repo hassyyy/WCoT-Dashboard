@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20181231163138) do
+ActiveRecord::Schema.define(:version => 20201017090746) do
 
   create_table "contributions", :force => true do |t|
     t.integer  "value"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20181231163138) do
     t.text     "other_details"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.boolean  "internal"
   end
 
   create_table "user_meeting_statuses", :force => true do |t|
